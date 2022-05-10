@@ -10,10 +10,10 @@ function Footer() {
 				href="mailto:webcifar@gmail.com"
 				className="font-regular text-sm md:text-md hover:text-indigo-500"
 			>
-				webcifar@emial.com
+				shaifarfan08@gmail.com
 			</a>
 			<p className="text-xs font-regular mt-2 text-gray-500">
-				© TechHub-Blog Creative {new Date().getFullYear()}. All rights reserved
+				© shaifarfan.com {new Date().getFullYear()}. All rights reserved
 			</p>
 		</div>
 	);

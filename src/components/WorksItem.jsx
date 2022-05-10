@@ -1,6 +1,7 @@
 import React from 'react';
+import Link from './Link';
 
-function WorksItem({ imgUrl, title, tech }) {
+function WorksItem({ imgUrl, title, tech, detailsLink }) {
 	return (
 		<div className="bg-slate-300 dark:bg-slate-800 rounded-lg overflow-hidden">
 			<img
@@ -22,6 +23,11 @@ function WorksItem({ imgUrl, title, tech }) {
 						</span>
 					))}
 				</p>
+				<div className="mt-3 cursor-pointer ">
+					<Link href={detailsLink} target="_blank" rel="noreferrer">
+						Details 🔗
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
