@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import Links from './pages/Links/Index';
+import Home from './pages/home';
+import Links from './pages/links';
 
 function App() {
 	const [theme, setTheme] = useState(null);
