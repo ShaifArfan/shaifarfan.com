@@ -1,7 +1,3 @@
-## React Tailwind Portfolio
+## My Personal Website
 
-A simple responsive design with `dark mode` feature.
-
-**Live Preview:https://react-tailwind-portfolio.surge.sh/**
-
-**Youtube Video: [Soon](https://youtube.com/webcifarOfficial)**
+**Live Preview:https://shaifarfan.com/**
