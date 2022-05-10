@@ -1,5 +1,5 @@
 import React from 'react';
-import myImg from '../images/hero.jpg';
+import Link from './Link';
 import SectionTitle from './SectionTitle';
 
 function About() {
@@ -8,21 +8,22 @@ function About() {
 			<div className="w-full md:w-6/12">
 				<SectionTitle>About Me</SectionTitle>
 				<p className="text-md text-gray-600 dark:text-gray-300">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-					veniam dolor consectetur pariatur explicabo, iure nulla. Dolor
-					debitis, natus cum ad, fugiat excepturi minima culpa atque modi
-					accusantium vel voluptatem?
+					My name is <span className="font-bold">Shaif Arfan</span> and I&apos;m
+					a web developer. I also teach web development at{' '}
+					<Link href="https://youtube.com/webcifarOfficial" target="_blank">
+						Web Cifar YouTube
+					</Link>{' '}
+					Channel.
 				</p>
-				<a
-					href="mailto:webcifar.com"
-					className="block mt-3 text-md md:text-lg font-regular text-gray-700 dark:text-gray-300 underline decoration-1 hover:text-indigo-500 dark:hover:text-indigo-500"
-				>
-					webcifar@gmail.com
-				</a>
+				<div className="block mt-3 ">
+					<Link href="mailto:shaifarfan08@gmail.com">
+						shaifarfan08@gmail.com
+					</Link>
+				</div>
 			</div>
 
 			<img
-				src={myImg}
+				src="https://avatars.githubusercontent.com/u/38496311?v=4"
 				alt="Arfan"
 				className="w-full md:w-6/12 rounded-lg object-cover"
 			/>
