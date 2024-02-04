@@ -1,7 +1,14 @@
 import React from 'react';
 import Link from './Link';
 
-function WorksItem({ imgUrl, title, tech, detailsLink }) {
+interface Props {
+  imgUrl: string;
+  title: string;
+  tech: string[];
+  detailsLink: string;
+}
+
+function WorksItem({ imgUrl, title, tech, detailsLink }: Props) {
   return (
     <div className="bg-slate-300 dark:bg-slate-800 rounded-lg overflow-hidden">
       <img

@@ -1,0 +1,18 @@
+---
+import About from '../components/About';
+import Footer from '../components/Footer';
+import HeroSection from '../components/HeroSection';
+import Works from '../components/Works';
+import Layout from '../layout/Layout.astro';
+---
+
+<Layout>
+  <div class="bg-white dark:bg-slate-900 min-h-screen font-inter">
+    <div class="max-w-5xl w-11/12 mx-auto">
+      <HeroSection client:load />
+      <About />
+      <Works />
+      <Footer />
+    </div>
+  </div>
+</Layout>
