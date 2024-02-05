@@ -1,5 +1,5 @@
 {
-  "name": "tailwind-test",
+  "name": "shaifarfan.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview --host",
+    "preview": "astro preview",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
