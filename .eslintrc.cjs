@@ -1,47 +1,36 @@
-const rules = {
-  //  0 = off, 1 = warn, 2 = error
-  'import/extensions': [1, 'never'],
-  'react/prop-types': 0,
-  'no-unused-vars': 1,
-  'jsx-a11y/anchor-is-valid': [
-    'error',
-    {
-      aspects: ['invalidHref'],
-    },
-  ],
-  'prefer-const': [
-    'error',
-    {
-      destructuring: 'all',
-    },
-  ],
-  // react-hooks
-  'react-hooks/rules-of-hooks': 'error',
-  'react-hooks/exhaustive-deps': 'warn',
-  'react/jsx-props-no-spreading': 0,
-  'react/jsx-filename-extension': [
-    0,
-    {
-      extensions: ['.jsx', '.tsx'],
-    },
-  ],
-};
-
+// .eslintrc.cjs
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  // extends: ['plugin:prettier/recommended'],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     extraFileExtensions: ['.astro'],
   },
-  plugins: ['react', 'react-hooks'],
+  env: {
+    node: true,
+    browser: true,
+  },
+  rules: {},
+  ignorePatterns: ['.astro', 'dist', 'node_modules'],
   overrides: [
     {
-      files: ['*.ts', '*.tsx', '*.jsx'],
+      // Define the configuration for `.astro` file.
+      files: ['*.astro'],
+      parser: 'astro-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.astro'],
+      },
+      extends: [
+        'plugin:astro/recommended',
+        'plugin:astro/jsx-a11y-recommended',
+      ],
+      rules: {},
+    },
+    {
+      // define the configuration for ts/tsx files.
+      files: ['*.ts', '*.tsx'],
       extends: [
         'airbnb',
         'airbnb-typescript',
@@ -51,37 +40,14 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
       ],
-      rules: {
-        ...rules,
-        'react/require-default-props': 0,
-      },
-    },
-    {
-      // Define the configuration for `.astro` file.
-      files: ['*.astro'],
-      extends: [
-        'plugin:astro/recommended',
-        'plugin:astro/jsx-a11y-recommended',
-        'airbnb-base',
-        'airbnb-typescript/base',
-        'plugin:prettier/recommended',
-      ],
-      // Allows Astro components to be parsed.
-      parser: 'astro-eslint-parser',
-      // Parse the script in `.astro` as TypeScript by adding the following configuration.
-      // It's the setting you need when using TypeScript.
       parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
+        project: true,
       },
       rules: {
-        ...rules,
-        // override/add rules settings here that is specific to astro files , such as:
-        // 'astro/no-set-html-directive': 'error',
-        'import/no-unresolved': 'off',
+        'react/react-in-jsx-scope': 0,
+        'react/require-default-props': 0,
+        'import/prefer-default-export': 0,
       },
     },
   ],
-
-  rules: { ...rules },
 };
