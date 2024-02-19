@@ -26,7 +26,7 @@ export const siteInfo: SiteInfo = {
   description:
     'Crafting innovative solutions through comprehensive full-stack expertise in JavaScript and top-tier framework utilization.',
   image: {
-    src: '/og/social.jpg',
+    src: '/og/social.png',
     alt: 'Experienced Web Developer and Educator',
   },
   socialLinks: [

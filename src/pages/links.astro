@@ -1,21 +1,21 @@
 ---
-import Link from 'components/Link';
+import Link from '~/components/Link';
 import Layout from '../layout/Layout.astro';
 ---
 
 <Layout>
   <div
-    class="bg-white dark:bg-slate-900 min-h-screen font-inter grid place-content-center"
+    class="grid min-h-screen place-content-center bg-white font-inter dark:bg-slate-900"
   >
-    <div class="max-w-5xl w-full">
+    <div class="w-full max-w-5xl">
       <div class="links_wrapper">
         <h1
-          class="text-xl md:text-3xl mb-3 text-gray-700 dark:text-gray-300 font-bold"
+          class="mb-3 text-xl font-bold text-gray-700 dark:text-gray-300 md:text-3xl"
         >
           Important Links
         </h1>
         <ol
-          class="flex flex-col gap-2 list-decimal text-gray-700 dark:text-gray-300 ml-4"
+          class="ml-4 flex list-decimal flex-col gap-2 text-gray-700 dark:text-gray-300"
         >
           <li>
             <Link
