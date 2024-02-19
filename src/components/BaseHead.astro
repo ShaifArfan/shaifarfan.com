@@ -1,0 +1,84 @@
+---
+import SEO from './SEO.astro';
+import { siteInfo } from '~/data/site-info';
+
+export type Props = {
+  title?: string;
+  description?: string;
+  image?: { src: string; alt: string };
+  canonicalURL?: URL | null;
+  pageType?: 'website' | 'article';
+};
+
+const twitterHandle = 'CiafrX';
+
+const {
+  description = siteInfo.description,
+  image = siteInfo.image,
+  canonicalURL = new URL(Astro.request.url, Astro.site),
+  pageType = 'website',
+} = Astro.props;
+
+const title = [siteInfo.name, Astro.props.title || siteInfo.title]
+  .filter(Boolean)
+  .join(' - ');
+
+const resolvedImage = {
+  src: new URL(image.src, Astro.site).toString(),
+  alt: image.alt,
+};
+---
+
+<!-- High Priority Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<!-- <title set:html={smartypants(title, 1)} /> -->
+<title>{title}</title>
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#557EFB" />
+
+<!-- Fathom - beautiful, simple website analytics -->
+<!-- <script src="https://cdn.usefathom.com/script.js" data-site="EZBHTSIG" defer
+></script> -->
+
+<!-- Font preloads -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<!-- <link
+  rel="preload"
+  href="/fonts/Obviously/Obviously Normal/Web/Obviously-Regular.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+<link
+  rel="preload"
+  href="/fonts/MDIO/Web/MDIO0.6-Regular.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/> -->
+
+<!-- <link rel="preload" href={Inter} as="font" type="font/woff2" crossorigin /> -->
+
+<!-- Low Priority Global Metadata -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<!-- <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" /> -->
+
+<SEO
+  name={siteInfo.name}
+  title={title}
+  description={description}
+  image={resolvedImage}
+  twitter={{ handle: twitterHandle }}
+  og={{ type: pageType }}
+  canonicalURL={canonicalURL}
+/>
+<!-- ../data/site-info -->

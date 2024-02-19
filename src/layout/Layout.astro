@@ -1,22 +1,39 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shaif Arfan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+---
+import BaseHead, {
+  type Props as HeadProps,
+} from '../components/BaseHead.astro';
+import { ViewTransitions } from 'astro:transitions';
+import '~/styles/global.css';
 
-  <body class="font-inter">
-    <main>
-      <slot />
-    </main>
+export type Props = HeadProps;
+
+// TODO will be used for active link highlighting
+// const { pathname } = new URL(Astro.request.url);
+// let currentPath = pathname.slice(1); // remove the first slash
+// if (currentPath[currentPath.length - 1] === '/') {
+//   currentPath = currentPath.slice(0, currentPath.length - 1);
+// }
+
+const { ...head } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" transition:animate="none">
+  <head>
+    <BaseHead {...head} />
+    <ViewTransitions fallback="animate" />
+  </head>
+  <body transition:animate="fade" class="font-inter">
+    <slot />
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
   </body>
 </html>
