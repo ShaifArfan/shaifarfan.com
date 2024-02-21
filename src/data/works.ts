@@ -7,6 +7,13 @@ export default [
     detailsLink: 'https://github.com/ShaifArfan/techHub-blog',
   },
   {
+    title: 'Meal Khuj',
+    imgUrl:
+      'https://github.com/ShaifArfan/meal-khuj/raw/main/images/banner.png',
+    tech: ['React.js', 'Next.js', 'TanStack Query (FKA React Query)', 'axios'],
+    detailsLink: 'https://github.com/ShaifArfan/meal-khuj',
+  },
+  {
     title: "Shaif'f Cuisine",
     imgUrl:
       'https://raw.githubusercontent.com/ShaifArfan/shaif-s-cuisine/main/readmeImg/banner.png',
@@ -26,5 +33,12 @@ export default [
       'https://raw.githubusercontent.com/ShaifArfan/artistic/main/readmeImg/banner.png',
     tech: ['React JS', 'CSS'],
     detailsLink: 'https://github.com/ShaifArfan/artistic',
+  },
+  {
+    title: 'AMYs Portfolio Website',
+    imgUrl:
+      'https://github.com/ShaifArfan/AMYs-Portfolio/raw/main/image/ReadMeBanner.png',
+    tech: ['HTML', 'CSS'],
+    detailsLink: 'https://github.com/ShaifArfan/AMYs-Portfolio',
   },
 ];

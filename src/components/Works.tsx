@@ -8,7 +8,7 @@ function Works() {
   return (
     <div className="py-12">
       <SectionTitle id="works">Recent Works </SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {works.map((work) => (
           <WorksItem
             key={work.title}
@@ -25,7 +25,7 @@ function Works() {
           target="_blank"
           rel="noreferrer"
         >
-          more in GitHub...
+          more on GitHub...
         </Link>
       </div>
     </div>
