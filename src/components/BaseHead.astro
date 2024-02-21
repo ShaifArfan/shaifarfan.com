@@ -1,6 +1,6 @@
 ---
 import SEO from './SEO.astro';
-import { siteInfo } from '~/data/site-info';
+import { siteInfo, twitterHandle } from '~/data/site-info';
 
 export type Props = {
   title?: string;
@@ -9,8 +9,6 @@ export type Props = {
   canonicalURL?: URL | null;
   pageType?: 'website' | 'article';
 };
-
-const twitterHandle = 'CiafrX';
 
 const {
   description = siteInfo.description,
@@ -38,10 +36,6 @@ console.log(resolvedImage);
 <meta name="generator" content={Astro.generator} />
 <meta name="theme-color" content="#557EFB" />
 
-<!-- Fathom - beautiful, simple website analytics -->
-<!-- <script src="https://cdn.usefathom.com/script.js" data-site="EZBHTSIG" defer
-></script> -->
-
 <!-- Font preloads -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,23 +43,6 @@ console.log(resolvedImage);
   href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
   rel="stylesheet"
 />
-<!-- <link
-  rel="preload"
-  href="/fonts/Obviously/Obviously Normal/Web/Obviously-Regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-
-<link
-  rel="preload"
-  href="/fonts/MDIO/Web/MDIO0.6-Regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/> -->
-
-<!-- <link rel="preload" href={Inter} as="font" type="font/woff2" crossorigin /> -->
 
 <!-- favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -79,7 +56,6 @@ console.log(resolvedImage);
 
 <!-- Low Priority Global Metadata -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-<!-- <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" /> -->
 
 <SEO
   name={siteInfo.name}
@@ -90,4 +66,3 @@ console.log(resolvedImage);
   og={{ type: pageType }}
   canonicalURL={canonicalURL}
 />
-<!-- ../data/site-info -->

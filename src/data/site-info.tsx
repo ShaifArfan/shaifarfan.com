@@ -20,6 +20,8 @@ export type SiteInfo = {
   socialLinks: SocialLink[];
 };
 
+export const twitterHandle = '@shaifarfan08';
+
 export const siteInfo: SiteInfo = {
   name: 'Shaif Arfan',
   title: 'Experienced Web Developer and Educator',
