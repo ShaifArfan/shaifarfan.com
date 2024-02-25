@@ -2,16 +2,14 @@
 import ThemeSwitcher from '~/components/ThemeSwitcher';
 import About from '../components/About';
 import Footer from '../components/Footer';
-import HeroSection from '../components/HeroSection';
 import Works from '../components/Works';
 import Layout from '../layout/Layout.astro';
 ---
 
 <Layout>
   <ThemeSwitcher client:load />
-  <div class="min-h-screen bg-white font-inter dark:bg-slate-900">
+  <div class="min-h-screen font-inter">
     <div class="mx-auto w-11/12 max-w-5xl">
-      <HeroSection />
       <About />
       <Works />
       <Footer />

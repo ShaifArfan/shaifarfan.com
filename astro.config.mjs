@@ -10,5 +10,12 @@ const siteURL =
 // https://astro.build/config
 export default defineConfig({
   site: siteURL || 'https://shaifarfan.com',
-  integrations: [react(), tailwind(), sitemap()],
+  integrations: [
+    react(),
+    tailwind({
+      configFile: './tailwind.config.cjs',
+      applyBaseStyles: false,
+    }),
+    sitemap(),
+  ],
 });
