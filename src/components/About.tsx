@@ -10,10 +10,10 @@ function About() {
       />
 
       <div className="w-full text-center md:w-6/12 md:text-left">
-        <h1 className="text-brand-600 text-2xl font-semibold md:text-4xl">
+        <h1 className="text-2xl font-semibold text-brand-600 md:text-4xl">
           Hi, I&apos;m Shaif Arfan
         </h1>
-        <p className="mt-3 max-w-md font-inter text-base text-gray-600 dark:text-gray-300 md:text-xl">
+        <p className="mt-3 font-inter text-lg text-gray-600 dark:text-gray-300 md:text-xl">
           Experienced Web Developer and Educator
         </p>
         <p className=" mt-3 text-base text-gray-600 dark:text-gray-400">
@@ -23,7 +23,7 @@ function About() {
             top-tier framework utilization.
           </span>
           <span className="mt-2 block">
-            Also, I&apos;m passionate about sharing my knowledge in web
+            Additionally, I&apos;m passionate about sharing my knowledge in web
             development through instructional content on the{' '}
             <Link
               href="https://youtube.com/webcifarOfficial"
@@ -35,7 +35,7 @@ function About() {
             .
           </span>
           <span className="mt-2 block">
-            Explore my works and let&apos;s collaborate to bring your ideas to
+            Explore my works, and let&apos;s collaborate to bring your ideas to
             life!
           </span>
           <span className="mt-2 block">
