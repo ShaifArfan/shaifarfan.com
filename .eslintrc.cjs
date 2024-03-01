@@ -1,6 +1,7 @@
+import { settings } from 'astro/runtime/client/dev-toolbar/settings.js';
+
 // .eslintrc.cjs
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -23,8 +24,10 @@ module.exports = {
         extraFileExtensions: ['.astro'],
       },
       extends: [
+        'eslint:recommended',
         'plugin:astro/recommended',
         'plugin:astro/jsx-a11y-recommended',
+        'plugin:prettier/recommended',
       ],
       rules: {},
     },
@@ -35,7 +38,6 @@ module.exports = {
         'airbnb',
         'airbnb-typescript',
         'airbnb/hooks',
-        'eslint:recommended',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
@@ -43,11 +45,22 @@ module.exports = {
       parserOptions: {
         project: true,
       },
+      settings: {
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+          },
+        },
+      },
       rules: {
         'react/react-in-jsx-scope': 0,
         'react/require-default-props': 0,
         'import/prefer-default-export': 0,
         'react/jsx-props-no-spreading': 0,
+        // 'import/extensions': 'never',
       },
     },
   ],

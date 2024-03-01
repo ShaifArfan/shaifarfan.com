@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 export type SocialLink = {
   platform: string;
@@ -33,15 +33,21 @@ export const siteInfo: SiteInfo = {
   },
   socialLinks: [
     {
+      platform: 'Instagram',
+      href: 'https://instagram.com/shaifarfan08',
+      text: 'Arfan Instagram',
+      icon: <FaInstagram />,
+    },
+    {
       platform: 'github',
       href: 'https://github.com/shaifarfan',
-      text: 'CifarX GitHub',
+      text: 'Arfan GitHub',
       icon: <FaGithub />,
     },
     {
       platform: 'twitter',
       href: 'https://x.com/shaifarfan08',
-      text: 'CifarX Twitter',
+      text: 'Arfan Twitter',
       icon: <FaTwitter />,
     },
   ],

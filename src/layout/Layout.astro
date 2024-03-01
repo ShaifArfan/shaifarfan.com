@@ -23,7 +23,7 @@ const { ...head } = Astro.props;
     <BaseHead {...head} />
     <ViewTransitions fallback="animate" />
   </head>
-  <body transition:animate="fade" class="dark:bg-darkBlue bg-white font-inter">
+  <body transition:animate="fade" class="bg-white font-inter dark:bg-darkBlue">
     <slot />
     <style is:global>
       html {
