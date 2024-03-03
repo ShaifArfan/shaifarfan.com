@@ -10,7 +10,7 @@ function Link({ children, href, className, ...props }: LinkProps) {
   return (
     <a
       href={href}
-      className={` text-gray-700 underline decoration-1 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-500  ${className || ''}`}
+      className={` text-gray-700 underline decoration-1 hover:text-brand-600 dark:text-gray-300 dark:hover:text-brand-500  ${className || ''}`}
       {...props}
     >
       {children}

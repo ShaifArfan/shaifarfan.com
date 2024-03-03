@@ -25,7 +25,7 @@ function ThemeSwitcher() {
   return (
     <button
       type="button"
-      className="fixed right-2 top-2 z-10 rounded-md bg-indigo-500 p-1 text-lg"
+      // className="fixed right-2 top-2 z-10 rounded-md bg-indigo-500 p-1 text-lg"
       onClick={handleThemeSwitch}
     >
       {theme === 'dark' ? '🌙' : '☀️'}

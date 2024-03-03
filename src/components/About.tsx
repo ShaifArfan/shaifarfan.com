@@ -38,12 +38,6 @@ function About() {
             Explore my works, and let&apos;s collaborate to bring your ideas to
             life!
           </span>
-          <span className="mt-2 block">
-            Reach me at{' '}
-            <Link href="mailto:shaifarfan08@gmail.com">
-              shaifarfan08@gmail.com
-            </Link>
-          </span>
         </p>
 
         <div className="mt-1 block " />

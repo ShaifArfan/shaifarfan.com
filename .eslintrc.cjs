@@ -1,5 +1,3 @@
-import { settings } from 'astro/runtime/client/dev-toolbar/settings.js';
-
 // .eslintrc.cjs
 module.exports = {
   parser: '@typescript-eslint/parser',

@@ -1,5 +1,4 @@
 ---
-import ThemeSwitcher from '~/components/ThemeSwitcher';
 import About from '../components/About';
 import Footer from '../components/Footer';
 import Works from '../components/Works';
@@ -7,12 +6,9 @@ import Layout from '../layout/Layout.astro';
 ---
 
 <Layout>
-  <ThemeSwitcher client:load />
   <div class="min-h-screen font-inter">
-    <div class="mx-auto w-11/12 max-w-5xl">
-      <About />
-      <Works />
-      <Footer />
-    </div>
+    <About />
+    <Works />
+    <Footer />
   </div>
 </Layout>

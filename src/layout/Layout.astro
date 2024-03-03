@@ -4,6 +4,7 @@ import BaseHead, {
 } from '../components/BaseHead.astro';
 import { ViewTransitions } from 'astro:transitions';
 import '~/styles/global.css';
+import Header from './header/Header';
 
 export type Props = HeadProps;
 
@@ -24,7 +25,10 @@ const { ...head } = Astro.props;
     <ViewTransitions fallback="animate" />
   </head>
   <body transition:animate="fade" class="bg-white font-inter dark:bg-darkBlue">
-    <slot />
+    <Header client:load />
+    <div class="layout-container">
+      <slot />
+    </div>
     <style is:global>
       html {
         scroll-behavior: smooth;

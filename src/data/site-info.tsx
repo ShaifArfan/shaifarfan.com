@@ -1,4 +1,10 @@
-import { FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from 'react-icons/fa';
 
 export type SocialLink = {
   platform: string;
@@ -18,6 +24,7 @@ export type SiteInfo = {
     alt: string;
   };
   socialLinks: SocialLink[];
+  email: string;
 };
 
 export const twitterHandle = '@shaifarfan08';
@@ -27,6 +34,7 @@ export const siteInfo: SiteInfo = {
   title: 'Experienced Web Developer and Educator',
   description:
     'Crafting innovative solutions through comprehensive full-stack expertise in JavaScript and top-tier framework utilization.',
+  email: 'shaifarfan08@gmail.com',
   image: {
     src: '/og/social.png',
     alt: 'Experienced Web Developer and Educator',
@@ -39,16 +47,28 @@ export const siteInfo: SiteInfo = {
       icon: <FaInstagram />,
     },
     {
-      platform: 'github',
-      href: 'https://github.com/shaifarfan',
-      text: 'Arfan GitHub',
-      icon: <FaGithub />,
+      platform: 'Facebook',
+      href: 'https://www.facebook.com/fb.ShaifArfan08',
+      text: 'Arfan Facebook',
+      icon: <FaFacebook />,
     },
     {
       platform: 'twitter',
       href: 'https://x.com/shaifarfan08',
       text: 'Arfan Twitter',
       icon: <FaTwitter />,
+    },
+    {
+      platform: 'linkedin',
+      href: 'https://www.linkedin.com/in/shaifarfan08',
+      text: 'Arfan LinkedIn',
+      icon: <FaLinkedin />,
+    },
+    {
+      platform: 'github',
+      href: 'https://github.com/shaifarfan',
+      text: 'Arfan GitHub',
+      icon: <FaGithub />,
     },
   ],
 };
