@@ -3,8 +3,8 @@ import Link from './Link';
 
 function Footer() {
   return (
-    <div className="rounded-t-lg bg-slate-800 py-5 text-center text-gray-300">
-      <a href="#hero" className="block text-xl font-semibold md:text-2xl">
+    <div className="layout-container  rounded-t-lg bg-slate-800 py-5 text-center text-gray-300">
+      <a href="/" className="block text-xl font-semibold md:text-2xl">
         Shiaf Arfan
       </a>
       <a
@@ -22,9 +22,15 @@ function Footer() {
           </li>
         ))}
       </ul>
-      <p className="font-regular mt-2 text-xs text-gray-500">
+      <p className="font-regular mt-2 text-sm text-gray-500">
         © shaifarfan.com {new Date().getFullYear()}. All rights reserved
       </p>
+      <Link
+        href="/privacy-policy"
+        className="font-regular mt-2 text-sm text-gray-500"
+      >
+        privacy policy 🔒
+      </Link>
     </div>
   );
 }

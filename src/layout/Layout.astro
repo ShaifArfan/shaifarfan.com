@@ -5,6 +5,7 @@ import BaseHead, {
 import { ViewTransitions } from 'astro:transitions';
 import '~/styles/global.css';
 import Header from './header/Header';
+import Footer from '~/components/Footer';
 
 export type Props = HeadProps;
 
@@ -29,6 +30,7 @@ const { ...head } = Astro.props;
     <div class="layout-container">
       <slot />
     </div>
+    <Footer />
     <style is:global>
       html {
         scroll-behavior: smooth;
