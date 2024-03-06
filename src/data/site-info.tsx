@@ -13,7 +13,6 @@ export type SocialLink = {
   text: string;
   icon: React.ReactNode;
   footerOnly?: boolean;
-  email: string;
 };
 
 export type SiteInfo = {

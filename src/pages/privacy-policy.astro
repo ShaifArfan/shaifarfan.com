@@ -1,11 +1,15 @@
 ---
 import Layout from '../layout/Layout.astro';
-// const site = import.meta.env.SITE;
+import { LuArrowLeft } from 'react-icons/lu';
 import { siteInfo } from '../data/site-info';
+import Link from '../components/Link';
 ---
 
 <Layout>
   <div class="py-10 text-slate-700 dark:text-slate-400">
+    <Link href="/" className="flex items-center gap-2 pb-5"
+      ><LuArrowLeft /> Back to Home</Link
+    >
     <h1>Privacy Policy 🔒</h1>
 
     <h2>Introduction:</h2>
