@@ -2,6 +2,13 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerMetaHighlight,
+  transformerCompactLineOptions,
+} from 'shikiji-transformers';
+
 const siteURL =
   process.env.CONTEXT === 'production'
     ? process.env.URL
@@ -18,4 +25,15 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+      transformers: [
+        transformerMetaHighlight(),
+        transformerNotationDiff(),
+        transformerNotationHighlight(),
+        transformerCompactLineOptions(),
+      ],
+    },
+  },
 });

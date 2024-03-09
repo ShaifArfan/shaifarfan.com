@@ -26,7 +26,7 @@ const { ...head } = Astro.props;
   </head>
   <body transition:animate="fade" class="bg-white font-inter dark:bg-darkBlue">
     <Header client:load />
-    <div class="layout-container">
+    <div class="layout-container dark:text-dark text-white">
       <slot />
     </div>
     <style is:global>
