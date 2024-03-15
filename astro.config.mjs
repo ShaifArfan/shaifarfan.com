@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
@@ -25,6 +25,9 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  image: {
+    service: squooshImageService(),
+  },
   markdown: {
     shikiConfig: {
       theme: 'github-dark',

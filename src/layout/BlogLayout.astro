@@ -3,28 +3,47 @@ import Layout from './Layout.astro';
 import Prose from '../components/blog/Prose.astro';
 const { frontmatter } = Astro.props;
 import EmbedYouTube from '../components/EmbedYouTube';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
-  <>
-    <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
+  <div class="py-20">
+    <div class="mb-10">
+      <h1 class="mb-2 text-4xl font-semibold">{frontmatter.title}</h1>
+      <p class="mb-2 text-slate-500">
+        {frontmatter.pubDate}
+      </p>
+    </div>
+    <!-- TODO need to make it optimized -->
+    {
+      frontmatter.cover && (
+        // <div class="h-[300px] w-full ">
+        <Image
+          src={frontmatter.cover}
+          alt={frontmatter.coverAlt}
+          style={{ objectFit: 'cover' }}
+          class={'aspect-[3/2]'}
+        />
+      )
+    }
+    <!-- <p><em>{frontmatter.description}</em></p> -->
+    <!-- <p>Written by: {frontmatter.author}</p> -->
     <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
 
     <Prose>
-      <h1 class="not-prose my-5 text-2xl font-bold">Video Tutorial:</h1>
       {
         frontmatter.tutorial && (
-          <EmbedYouTube
-            id={frontmatter.tutorial}
-            title={frontmatter.title}
-            client:load
-          />
+          <>
+            <h1 class="not-prose my-5 text-2xl font-bold">Video Tutorial:</h1>
+            <EmbedYouTube
+              id={frontmatter.tutorial}
+              title={frontmatter.title}
+              client:load
+            />
+          </>
         )
       }
       <slot />
     </Prose>
-  </>
+  </div>
 </Layout>

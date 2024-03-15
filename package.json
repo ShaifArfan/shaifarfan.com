@@ -12,12 +12,12 @@
     "lint:fix": "eslint src --fix"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.9",
-    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/react": "^3.1.0",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",
-    "astro": "^4.4.15",
+    "astro": "^4.5.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
