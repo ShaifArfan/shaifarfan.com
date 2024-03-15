@@ -1,7 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layout/Layout.astro';
+
+const posts = await getCollection('blog');
 ---
 
 <Layout>
   <h1>This is blog archive</h1>
+  <div class="flex flex-wrap gap-4">
+    {
+      posts.map((post) => (
+        <a href={'/blog/' + post.slug}>
+          <div class="rounded-md bg-slate-500 p-5">
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </div>
+        </a>
+      ))
+    }
+  </div>
 </Layout>
