@@ -2,30 +2,36 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layout/Layout.astro';
 import { Image } from 'astro:assets';
+import dayjs from 'dayjs';
 
 const posts = await getCollection('blog');
 ---
 
 <Layout>
   <div class="py-[80px]">
-    <h1 class="mb-5 text-center text-4xl">This is blog archive</h1>
-    <div class="flex flex-wrap gap-4">
+    <div class="mb-5 text-center">
+      <h1 class="primary-title">Blog Posts</h1>
+      <p class="mt-2 text-slate-500">Read my recent blog posts</p>
+    </div>
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       {
         posts.map((post) => (
           <a href={'/blog/' + post.slug}>
-            <div class="rounded-3xl bg-slate-900 p-5 hover:bg-slate-800">
+            <div class="rounded-3xl border-2 border-slate-800 bg-transparent p-5 hover:bg-slate-900">
               {post.data.cover && (
-                <div class="mb-4">
+                <div class="mb-4 ">
                   <Image
                     src={post.data.cover}
                     alt={post.data.coverAlt || post.data.title}
-                    class={'aspect-[3/2] max-w-[400px] rounded-2xl'}
+                    class={'aspect-[3/2]  rounded-2xl'}
                   />
                 </div>
               )}
               <div>
                 <h2 class="mb-2 text-xl font-semibold">{post.data.title}</h2>
-                <p class="mb-1 text-sm text-slate-500">{post.data.pubDate}</p>
+                <p class="mb-2 text-sm text-slate-500">
+                  {dayjs(post.data.pubDate).format('MMM D, YYYY h:mm A')}
+                </p>
                 <p>{post.data.description}</p>
               </div>
             </div>

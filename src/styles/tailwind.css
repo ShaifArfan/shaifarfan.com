@@ -17,4 +17,8 @@
   .primary-btn {
     @apply btn border-2 border-brand-600 bg-brand-600 bg-opacity-100 text-white hover:bg-opacity-[.12] hover:text-brand-600 dark:text-white dark:hover:bg-opacity-[.20];
   }
+
+  .primary-title {
+    @apply text-2xl font-semibold text-brand-600 md:text-4xl;
+  }
 }
