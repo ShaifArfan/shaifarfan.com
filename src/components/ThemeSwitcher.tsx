@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
+type Theme = 'dark' | 'light';
+
 function ThemeSwitcher() {
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    const localTheme = localStorage.getItem('theme') as Theme;
+    if (localTheme) {
+      setTheme(localTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark');
     } else {
       setTheme('light');
@@ -13,6 +18,7 @@ function ThemeSwitcher() {
 
   const handleThemeSwitch = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+    localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark');
   };
 
   useEffect(() => {

@@ -25,10 +25,15 @@ const { ...head } = Astro.props;
     <BaseHead {...head} />
     <ViewTransitions fallback="animate" />
   </head>
-  <body transition:animate="fade" class="bg-white font-inter dark:bg-darkBlue">
-    <Header client:load />
-    <div class="layout-container dark:text-dark text-white">
-      <slot />
+  <body
+    transition:animate="fade"
+    class="flex min-h-[100vh] flex-col justify-between bg-white font-inter dark:bg-darkBlue"
+  >
+    <div>
+      <Header client:load />
+      <div class="layout-container dark:text-dark text-black dark:text-white">
+        <slot />
+      </div>
     </div>
     <Footer />
     <style is:global>
