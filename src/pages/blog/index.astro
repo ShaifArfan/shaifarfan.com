@@ -25,6 +25,7 @@ const posts = await getCollection('blog');
                   <Image
                     src={post.data.cover}
                     alt={post.data.coverAlt || post.data.title}
+                    width={500}
                     height={300}
                     class={'h-[300px] w-full rounded-2xl'}
                   />

@@ -8,7 +8,7 @@ import {
   transformerMetaHighlight,
   transformerCompactLineOptions,
 } from 'shikiji-transformers';
-
+import mdx from '@astrojs/mdx';
 const siteURL =
   process.env.CONTEXT === 'production'
     ? process.env.URL
@@ -24,12 +24,24 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
+    mdx(),
   ],
   image: {
     domains: ['images.unsplash.com'],
     service: squooshImageService(),
   },
   markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+      transformers: [
+        transformerMetaHighlight(),
+        transformerNotationDiff(),
+        transformerNotationHighlight(),
+        transformerCompactLineOptions(),
+      ],
+    },
+  },
+  mdx: {
     shikiConfig: {
       theme: 'github-dark',
       transformers: [

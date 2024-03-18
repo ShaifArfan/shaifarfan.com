@@ -8,6 +8,8 @@ coverAlt: 'A image for test'
 tags: ['astro', 'blogging', 'learning in public']
 ---
 
+import { Image } from 'astro:assets';
+
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
 # This is heading 1
@@ -33,7 +35,13 @@ console.log(greeting);
 
 add an image
 
-![The Astro logo with the word One.](https://images.unsplash.com/photo-1682685797507-d44d838b0ac7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+<Image
+  src="https://images.unsplash.com/photo-1682685797507-d44d838b0ac7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+"
+  alt="The Astro logo with the word One."
+  width={1024}
+  height={768}
+/>
 
 add a link to the Astro website
 
