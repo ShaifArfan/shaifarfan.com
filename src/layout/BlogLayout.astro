@@ -1,9 +1,17 @@
 ---
 import Layout from './Layout.astro';
 import Prose from '../components/blog/Prose.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  frontmatter: CollectionEntry<'blog'>['data'];
+}
+
 const { frontmatter } = Astro.props;
 import EmbedYouTube from '../components/EmbedYouTube';
 import { Image } from 'astro:assets';
+import Link from '~/components/Link';
+import { formattedPublishDate } from '~/utils/date';
 ---
 
 <Layout>
@@ -11,21 +19,30 @@ import { Image } from 'astro:assets';
     <div class="mb-10">
       <h1 class="mb-2 text-4xl font-semibold">{frontmatter.title}</h1>
       <p class="mb-2 text-slate-500">
-        {frontmatter.pubDate}
+        {formattedPublishDate(frontmatter.pubDate)}
       </p>
     </div>
     <!-- TODO need to make it optimized -->
     {
       frontmatter.cover && (
-        // <div class="h-[300px] w-full ">
         <Image
           src={frontmatter.cover}
-          alt={frontmatter.coverAlt}
-          style={{ objectFit: 'cover' }}
-          class={'aspect-[3/2]'}
+          alt={frontmatter.coverAlt || frontmatter.title}
+          quality={'high'}
+          height={500}
+          width={1024}
+          class={'h-[500px] w-full object-cover object-center'}
         />
       )
     }
+    <div class="mb-10 mt-5 flex justify-between">
+      <div>
+        <!-- TODO: read time -->
+      </div>
+      <Link href="https://github.com/shaifarfan/shaifarfan.com" target="_blank"
+        >📝 Edit on GitHub</Link
+      >
+    </div>
     <!-- <p><em>{frontmatter.description}</em></p> -->
     <!-- <p>Written by: {frontmatter.author}</p> -->
     <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->

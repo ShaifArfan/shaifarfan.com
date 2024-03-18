@@ -26,6 +26,7 @@ export default defineConfig({
     sitemap(),
   ],
   image: {
+    domains: ['images.unsplash.com'],
     service: squooshImageService(),
   },
   markdown: {
