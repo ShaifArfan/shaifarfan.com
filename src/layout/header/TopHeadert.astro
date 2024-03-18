@@ -8,7 +8,7 @@ import { siteInfo } from '~/data/site-info';
 <div class="flex flex-col justify-between gap-3 py-2 md:flex-row">
   <Link
     href={`mailto:${siteInfo.email}`}
-    class="flex items-center justify-center gap-2 text-base text-slate-500 dark:text-slate-500"
+    className="flex items-center justify-center gap-2 text-base text-slate-500 dark:text-slate-500"
   >
     <span>
       <FaEnvelope />
@@ -18,18 +18,21 @@ import { siteInfo } from '~/data/site-info';
   <div class="flex items-center justify-center gap-3 md:justify-between">
     <ul class="flex gap-2">
       {
-        siteInfo.socialLinks.map((link) => (
-          <li class="text-xl ">
-            <Link
-              href={link.href}
-              target="_blank"
-              aria-label={link.text}
-              class="text-slate-500 dark:text-slate-500"
-            >
-              {link.icon}
-            </Link>
-          </li>
-        ))
+        siteInfo.socialLinks.map((link) => {
+          const Icon = link.icon;
+          return (
+            <li class="text-xl ">
+              <Link
+                href={link.href}
+                target="_blank"
+                aria-label={link.text}
+                className="text-slate-500 dark:text-slate-500"
+              >
+                <Icon />
+              </Link>
+            </li>
+          );
+        })
       }
     </ul>
     <div class="h-[1em] w-[1px] bg-gray-500"></div>

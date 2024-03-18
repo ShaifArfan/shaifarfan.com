@@ -1,3 +1,5 @@
+import type { Icon } from 'astro/runtime/client/dev-toolbar/ui-library/icons.js';
+import type { IconType } from 'react-icons';
 import {
   FaFacebook,
   FaGithub,
@@ -11,7 +13,7 @@ export type SocialLink = {
   href: string;
   me?: string;
   text: string;
-  icon: React.ReactNode;
+  icon: IconType;
   footerOnly?: boolean;
 };
 
@@ -44,31 +46,31 @@ export const siteInfo: SiteInfo = {
       platform: 'Instagram',
       href: 'https://instagram.com/shaifarfan08',
       text: 'Arfan Instagram',
-      icon: <FaInstagram />,
+      icon: FaInstagram,
     },
     {
       platform: 'Facebook',
       href: 'https://www.facebook.com/fb.ShaifArfan08',
       text: 'Arfan Facebook',
-      icon: <FaFacebook />,
+      icon: FaFacebook,
     },
     {
       platform: 'twitter',
       href: 'https://x.com/shaifarfan08',
       text: 'Arfan Twitter',
-      icon: <FaTwitter />,
+      icon: FaTwitter,
     },
     {
       platform: 'linkedin',
       href: 'https://www.linkedin.com/in/shaifarfan08',
       text: 'Arfan LinkedIn',
-      icon: <FaLinkedin />,
+      icon: FaLinkedin,
     },
     {
       platform: 'github',
       href: 'https://github.com/shaifarfan',
       text: 'Arfan GitHub',
-      icon: <FaGithub />,
+      icon: FaGithub,
     },
   ],
 };

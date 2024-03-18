@@ -1,14 +1,33 @@
-<button id="theme-switcher">theme</button>
+<theme-switcher>
+  <button id="theme-switcher">🌙</button>
+</theme-switcher>
 
 <script>
-  const localTheme = localStorage.getItem('theme');
-  const themeSwitcher = document.getElementById('theme-switcher');
-  if (localTheme === 'dark') {
-    document.documentElement.classList.add('dark');
+  class ThemeSwitcher extends HTMLElement {
+    constructor() {
+      super();
+      const localTheme = localStorage.getItem('theme');
+      const themeEl = this.querySelector('#theme-switcher');
+      console.log({ themeEl });
+      // initial theme setup
+      if (localTheme) {
+        if (localTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+      // on click theme switcher
+      themeEl?.addEventListener('click', () => {
+        console.log('clicked');
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeEl.textContent = isDark ? '🌙' : '🌞';
+      });
+    }
   }
-  themeSwitcher?.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    const isDark = document.documentElement.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
+  customElements.define('theme-switcher', ThemeSwitcher);
 </script>
