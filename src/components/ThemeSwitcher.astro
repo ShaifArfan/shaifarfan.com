@@ -1,0 +1,14 @@
+<button id="theme-switcher">theme</button>
+
+<script>
+  const localTheme = localStorage.getItem('theme');
+  const themeSwitcher = document.getElementById('theme-switcher');
+  if (localTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+  themeSwitcher?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
