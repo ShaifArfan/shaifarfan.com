@@ -9,13 +9,6 @@ import Footer from '~/components/Footer';
 
 export type Props = HeadProps;
 
-// TODO will be used for active link highlighting
-// const { pathname } = new URL(Astro.request.url);
-// let currentPath = pathname.slice(1); // remove the first slash
-// if (currentPath[currentPath.length - 1] === '/') {
-//   currentPath = currentPath.slice(0, currentPath.length - 1);
-// }
-
 const { ...head } = Astro.props;
 ---
 

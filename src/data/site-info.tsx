@@ -1,4 +1,3 @@
-import type { Icon } from 'astro/runtime/client/dev-toolbar/ui-library/icons.js';
 import type { IconType } from 'react-icons';
 import {
   FaFacebook,
