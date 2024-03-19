@@ -4,11 +4,11 @@
 
 **Live Preview:https://shaifarfan.com/**
 
-- Blog posts with markdown
+- Blog posts with MDX
 - code syntax highlighter (shiki)
 
 options for code highlighting:
 
 - prism
-- shiki
+- shiki ✅
 - expressive code
