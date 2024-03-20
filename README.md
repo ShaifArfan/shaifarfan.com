@@ -12,3 +12,12 @@ options for code highlighting:
 - prism
 - shiki ✅
 - expressive code
+
+TODO:
+
+- [x] Add a blog
+- Blog Feature
+  - [ ] Add estimated reading time & last modified date
+  - [ ] Tags
+  - [ ] search
+  - [ ] pagination
