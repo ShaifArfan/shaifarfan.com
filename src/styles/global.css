@@ -1,2 +1,24 @@
 @import url('./tailwind.css');
 @import url('./prose.scss');
+
+.autolink-header {
+  display: inline-block;
+  cursor: pointer;
+  padding-right: 5px;
+}
+@media only screen and (min-width: 768px) {
+  .autolink-header {
+    position: absolute;
+    left: -20px;
+    right: calc(100%);
+    opacity: 0;
+  }
+}
+
+.blog-content :is(h1, h2, h3, h4) {
+  position: relative;
+}
+
+.blog-content :is(h1, h2, h3, h4):hover .autolink-header {
+  opacity: 1;
+}

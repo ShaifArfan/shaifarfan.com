@@ -5,9 +5,10 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   frontmatter: CollectionEntry<'blog'>['data'];
+  editLink: string;
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter, editLink } = Astro.props;
 import EmbedYouTube from '../components/EmbedYouTube';
 import { Image } from 'astro:assets';
 import Link from '~/components/Link';
@@ -15,7 +16,7 @@ import { formattedPublishDate } from '~/utils/date';
 ---
 
 <Layout>
-  <div class="py-20">
+  <div class="blog-content py-20">
     <div class="mb-10">
       <h1 class="mb-2 text-4xl font-semibold">{frontmatter.title}</h1>
       <p class="mb-2 text-slate-500">
@@ -39,9 +40,7 @@ import { formattedPublishDate } from '~/utils/date';
       <div>
         <!-- TODO: read time -->
       </div>
-      <Link href="https://github.com/shaifarfan/shaifarfan.com" target="_blank"
-        >📝 Edit on GitHub</Link
-      >
+      <Link href={editLink} target="_blank">📝 Edit on GitHub</Link>
     </div>
     <!-- <p><em>{frontmatter.description}</em></p> -->
     <!-- <p>Written by: {frontmatter.author}</p> -->
