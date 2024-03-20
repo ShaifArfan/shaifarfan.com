@@ -30,7 +30,7 @@ export default defineConfig({
     mdx(),
   ],
   image: {
-    domains: ['images.unsplash.com'],
+    domains: ['res.cloudinary.com'],
     service: squooshImageService(),
   },
   markdown: {

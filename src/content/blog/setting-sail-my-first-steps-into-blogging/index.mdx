@@ -1,0 +1,54 @@
+---
+title: 'Setting Sail: My First Steps into Blogging ⛵'
+pubDate: 2024-03-21
+description: 'This is the first post of my new Astro blog.'
+author: 'Astro Learner'
+cover: 'https://res.cloudinary.com/shaifarfan/image/upload/c_fill,w_1080,h_540/v1710960794/shaifarfan.com/blog/my-first-blog-post/photo-1593642634315-48f5414c3ad9_bu2nnv.jpg'
+coverAlt: 'A image for test'
+coverCredit: 'Photo by Test'
+tags: []
+---
+
+import BlogImage from '~/components/blog/BlogImage.astro';
+
+## Welcome to the Blog Section of the Website
+
+I am really excited to embark on this blog journey. I will be sharing my insights and learnings, and I hope you will find them helpful.
+
+First of all, this website is completely open source. You can find the source code on [GitHub](https://github.com/shaifarfan/shaifarfan.com). Feel free to explore the repository and contribute 🚀.
+
+I created this website mainly using `Astro` and `TailwindCSS`. I thoroughly enjoyed building the website and learned a ton about Astro.js. While the website is not yet complete, I will be adding more features in the future. Even in the blog section, I need to incorporate additional features like pagination, search functionality, tags, and estimated reading time. But for now, I believe it's a good start.
+
+Moving forward, I will be writing blog posts alongside my YouTube videos. I believe this will be helpful for viewers to gain a deeper understanding of the topics covered and will allow me to share more insights.
+
+Now, let's discuss how I created this website, specifically the blog section.
+
+As mentioned, I primarily used `Astro.js` and `TailwindCSS`. For the blog, I used MDX.
+
+For those unfamiliar, MDX is a file format that allows you to use JSX in your Markdown files. This enables you to create more dynamic content by using `React.js` within your markdown files.
+
+### Tech Stack Used
+
+- Astro.js
+- TailwindCSS
+- MDX
+- React.js
+
+When I began building this blog, I found [Astro's tutorials](https://docs.astro.build/en/tutorial/) very helpful.
+
+There are multiple approaches to create a blog using Astro.js. I used the [content collections](https://docs.astro.build/en/guides/content-collections/) feature to organize the blog posts. This feature allows you to define a schema for the frontmatter of the blog posts, ensuring type safety.
+
+Now, let's discuss how I enhanced the aesthetics and user-friendliness of the blog content.
+
+- **@tailwindcss/typography**: For styling the blog content
+- **shiki**: Code syntax highlighting (default in Astro)
+- **shikiji-transformers**: Code highlighting (line highlighting, diff highlighting, etc.)
+- **rehype-external-links**: Customizing external links
+- **rehype-slug**: Adding IDs to the headings
+- **rehype-autolink-headings**: Adding anchor links to the headings
+
+When it comes to content, images play a significant role. Fortunately, Astro.js has a built-in [`<Image />`](https://docs.astro.build/en/guides/images/#image--astroassets) component, which will help you to diplay optimized images.
+
+For image hosting, I decided not to host images locally but instead remotely hosted them on [Cloudinary](https://cloudinary.com/).
+
+That's it for today. I will be adding more content in the future. If you have any suggestions, feel free to reach out to me.

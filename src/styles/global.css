@@ -9,7 +9,7 @@
 @media only screen and (min-width: 768px) {
   .autolink-header {
     position: absolute;
-    left: -20px;
+    left: -0.8em;
     right: calc(100%);
     opacity: 0;
   }

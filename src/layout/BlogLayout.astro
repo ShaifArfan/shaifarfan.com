@@ -23,16 +23,18 @@ import { formattedPublishDate } from '~/utils/date';
         {formattedPublishDate(frontmatter.pubDate)}
       </p>
     </div>
-    <!-- TODO need to make it optimized -->
     {
       frontmatter.cover && (
         <Image
           src={frontmatter.cover}
           alt={frontmatter.coverAlt || frontmatter.title}
+          title={frontmatter.coverCredit || frontmatter.title}
           quality={'high'}
-          height={500}
-          width={1024}
-          class={'h-[500px] w-full object-cover object-center'}
+          height={540}
+          width={1080}
+          widths={[720, 1080]}
+          sizes={'(max-width: 768px) 720px, 1080px'}
+          class={'aspect-[2/1] min-h-[200px] w-full object-cover object-center'}
         />
       )
     }
@@ -42,9 +44,6 @@ import { formattedPublishDate } from '~/utils/date';
       </div>
       <Link href={editLink} target="_blank">📝 Edit on GitHub</Link>
     </div>
-    <!-- <p><em>{frontmatter.description}</em></p> -->
-    <!-- <p>Written by: {frontmatter.author}</p> -->
-    <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
 
     <Prose>
       {
