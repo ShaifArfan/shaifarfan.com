@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layout/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const editLink = `https://github.com/shaifarfan/shaifarfan.com/blob/main/src/content/blog/${entry.slug}/index.mdx`;
+---
+
+<BlogLayout frontmatter={entry.data} editLink={editLink}>
+  <Content />
+</BlogLayout>
+
+<style is:global lang="scss"></style>

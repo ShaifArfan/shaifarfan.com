@@ -5,7 +5,7 @@
 /* Custom Styles */
 @layer components {
   .layout-container {
-    @apply mx-auto w-11/12 max-w-5xl;
+    @apply mx-auto w-[88%] max-w-5xl;
   }
   .btn {
     @apply rounded-lg px-5 py-2 text-base font-medium transition-colors duration-300 ease-in-out;
@@ -16,5 +16,9 @@
 
   .primary-btn {
     @apply btn border-2 border-brand-600 bg-brand-600 bg-opacity-100 text-white hover:bg-opacity-[.12] hover:text-brand-600 dark:text-white dark:hover:bg-opacity-[.20];
+  }
+
+  .primary-title {
+    @apply text-2xl font-semibold text-brand-600 md:text-4xl;
   }
 }

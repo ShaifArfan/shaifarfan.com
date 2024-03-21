@@ -1,7 +1,17 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerMetaHighlight,
+  transformerCompactLineOptions,
+} from 'shikiji-transformers';
+import mdx from '@astrojs/mdx';
 const siteURL =
   process.env.CONTEXT === 'production'
     ? process.env.URL
@@ -17,5 +27,59 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
+    mdx(),
   ],
+  image: {
+    domains: ['res.cloudinary.com'],
+    service: squooshImageService(),
+  },
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          content: { type: 'text', value: ' 🔗' },
+          rel: ['nofollow'],
+          target: '_blank',
+        },
+      ],
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'prepend',
+          properties: {
+            class: 'autolink-header',
+            title: 'Copy link to clipboard',
+            ariaHidden: true,
+            tabIndex: -1,
+          },
+          content: {
+            type: 'text',
+            value: '#',
+          },
+        },
+      ],
+    ],
+    shikiConfig: {
+      theme: 'github-dark',
+      transformers: [
+        transformerMetaHighlight(),
+        transformerNotationDiff(),
+        transformerNotationHighlight(),
+        transformerCompactLineOptions(),
+      ],
+    },
+  },
+  // mdx: {
+  // shikiConfig: {
+  //   theme: 'github-dark',
+  //   transformers: [
+  //     transformerMetaHighlight(),
+  //     transformerNotationDiff(),
+  //     transformerNotationHighlight(),
+  //     transformerCompactLineOptions(),
+  //   ],
+  // },
+  // },
 });

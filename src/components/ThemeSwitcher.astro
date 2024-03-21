@@ -1,0 +1,33 @@
+<theme-switcher>
+  <button id="theme-switcher">🌙</button>
+</theme-switcher>
+
+<script>
+  class ThemeSwitcher extends HTMLElement {
+    constructor() {
+      super();
+      const localTheme = localStorage.getItem('theme');
+      const themeEl = this.querySelector('#theme-switcher');
+
+      // initial theme setup
+      if (localTheme) {
+        if (localTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+
+      // on click theme switcher
+      themeEl?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeEl.textContent = isDark ? '🌙' : '☀️';
+      });
+    }
+  }
+  customElements.define('theme-switcher', ThemeSwitcher);
+</script>

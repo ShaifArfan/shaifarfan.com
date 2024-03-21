@@ -1,0 +1,79 @@
+---
+import Layout from './Layout.astro';
+import Prose from '../components/blog/Prose.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  frontmatter: CollectionEntry<'blog'>['data'];
+  editLink: string;
+}
+
+const { frontmatter, editLink } = Astro.props;
+import EmbedYouTube from '../components/EmbedYouTube';
+import { Image } from 'astro:assets';
+import Link from '~/components/Link';
+import { formattedPublishDate } from '~/utils/date';
+
+const ogImage = frontmatter.cover
+  ? {
+      src: frontmatter.cover.replace(
+        'https://res.cloudinary.com/shaifarfan/image/upload/',
+        'https://res.cloudinary.com/shaifarfan/image/upload/c_fill,w_1200,h_630,g_auto/'
+      ),
+      alt: frontmatter.coverAlt || frontmatter.title,
+    }
+  : undefined;
+---
+
+<Layout
+  pageType="article"
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={ogImage}
+>
+  <div class="blog-content py-20">
+    <div class="mb-10">
+      <h1 class="mb-2 text-4xl font-semibold">{frontmatter.title}</h1>
+      <p class="mb-2 text-slate-500">
+        {formattedPublishDate(frontmatter.pubDate)}
+      </p>
+    </div>
+    {
+      frontmatter.cover && (
+        <Image
+          src={frontmatter.cover}
+          alt={frontmatter.coverAlt || frontmatter.title}
+          title={frontmatter.coverCredit || frontmatter.title}
+          quality={'high'}
+          height={540}
+          width={1080}
+          widths={[720, 1080]}
+          sizes={'(max-width: 768px) 720px, 1080px'}
+          class={'aspect-[2/1] min-h-[200px] w-full object-cover object-center'}
+        />
+      )
+    }
+    <div class="mb-10 mt-5 flex justify-between">
+      <div>
+        <!-- TODO: read time -->
+      </div>
+      <Link href={editLink} target="_blank">📝 Edit on GitHub</Link>
+    </div>
+
+    <Prose>
+      {
+        frontmatter.tutorial && (
+          <>
+            <h1 class="not-prose my-5 text-2xl font-bold">Video Tutorial:</h1>
+            <EmbedYouTube
+              id={frontmatter.tutorial}
+              title={frontmatter.title}
+              client:load
+            />
+          </>
+        )
+      }
+      <slot />
+    </Prose>
+  </div>
+</Layout>

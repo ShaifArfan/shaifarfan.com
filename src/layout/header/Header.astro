@@ -1,0 +1,47 @@
+---
+import TopHeader from './TopHeadert.astro';
+
+const LINKS = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
+  },
+];
+
+const { pathname } = new URL(Astro.request.url);
+let currentPath = pathname.slice(1); // remove the first slash
+if (currentPath[currentPath.length - 1] === '/') {
+  currentPath = currentPath.slice(0, currentPath.length - 1);
+}
+---
+
+<div class="border-b-[1px] border-slate-200 dark:border-slate-800">
+  <div class="layout-container">
+    <TopHeader />
+    <div
+      class="my-3 flex items-center justify-between text-slate-800 dark:text-white"
+    >
+      <a href="/" class="text-xl font-semibold"> ARFAN✨ </a>
+      <ul class="flex gap-3">
+        {
+          LINKS.map((link) => {
+            const isActive =
+              currentPath === link.href.slice(1) ||
+              pathname.startsWith(`${link.href}/`);
+            return (
+              <li>
+                <a href={link.href} class={isActive ? ' text-brand-600' : ''}>
+                  {link.name}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+</div>

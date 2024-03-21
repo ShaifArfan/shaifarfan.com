@@ -17,9 +17,12 @@ const {
   pageType = 'website',
 } = Astro.props;
 
-const title = [siteInfo.name, Astro.props.title || siteInfo.title]
-  .filter(Boolean)
-  .join(' - ');
+const title =
+  pageType === 'article'
+    ? [Astro.props.title, siteInfo.name].filter(Boolean).join('-')
+    : [siteInfo.name, Astro.props.title || siteInfo.title]
+        .filter(Boolean)
+        .join(' - ');
 
 const resolvedImage = {
   src: new URL(image.src, Astro.site).toString(),

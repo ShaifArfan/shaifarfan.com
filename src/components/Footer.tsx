@@ -17,7 +17,7 @@ function Footer() {
         {siteInfo.socialLinks.map((link) => (
           <li key={link.href} className="text-xl">
             <Link href={link.href} target="_blank" aria-label={link.text}>
-              {link.icon}
+              <link.icon />
             </Link>
           </li>
         ))}
