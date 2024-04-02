@@ -3,8 +3,6 @@ title: 'Airbnb ESLint & Prettier Setup With React.js & TypeScript'
 pubDate: 2024-04-02
 description: 'Learn how to setup Eslint with Airbnb style guide & Prettier in a React.js & TypeScript project.'
 cover: 'https://res.cloudinary.com/shaifarfan/image/upload/v1712078512/shaifarfan.com/blog/airbnb-eslint-prettier-setup-react-typescript/cover.png'
-coverAlt: 'person using black laptop computer on brown wooden table'
-coverCredit: 'Photo by @dell from Unsplash'
 tags: []
 ---
 
@@ -57,7 +55,7 @@ npx install-peerdeps --dev eslint-config-airbnb
 
 Once we have installed this, we need to extend the config in `eslintrc` file.
 
-```jsx
+```js
 extends: ["airbnb", "airbnb/hooks"]
 extends: ["airbnb-base"] //for non react project
 ```
