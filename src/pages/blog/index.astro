@@ -4,6 +4,7 @@ import Layout from '../../layout/Layout.astro';
 import { Image } from 'astro:assets';
 import { formattedPublishDate } from '~/utils/date';
 import { getBlogPosts } from '~/utils/getBlog';
+import { cloudinaryImageResize } from '~/utils/cloudinaryImageResize';
 
 const posts = getBlogPosts(await getCollection('blog'));
 ---
@@ -22,13 +23,19 @@ const posts = getBlogPosts(await getCollection('blog'));
           <a href={'/blog/' + post.slug} class="">
             <div class="h-full rounded-3xl border-2 border-slate-200 bg-transparent p-4 hover:bg-slate-300 dark:border-slate-800 dark:hover:bg-slate-900 md:p-5">
               {post.data.cover && (
-                <div class="mb-4 ">
+                <div class="mb-4" data-anotherTest="hi" data-sdfasdf="sdfasdf">
                   <Image
-                    src={post.data.cover}
+                    src={cloudinaryImageResize({
+                      imageUrl: post.data.cover,
+                      width: 600,
+                      height: 400,
+                    })}
                     alt={post.data.coverAlt || post.data.title}
-                    width={500}
-                    height={300}
-                    class={'h-[300px] w-full rounded-2xl'}
+                    width={600}
+                    height={400}
+                    class={
+                      'aspect-[3/2] min-h-[150px] w-full rounded-2xl object-cover object-center'
+                    }
                   />
                 </div>
               )}

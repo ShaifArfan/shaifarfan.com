@@ -13,13 +13,15 @@ import EmbedYouTube from '../components/EmbedYouTube';
 import { Image } from 'astro:assets';
 import Link from '~/components/Link';
 import { formattedPublishDate } from '~/utils/date';
+import { cloudinaryImageResize } from '~/utils/cloudinaryImageResize';
 
 const ogImage = frontmatter.cover
   ? {
-      src: frontmatter.cover.replace(
-        'https://res.cloudinary.com/shaifarfan/image/upload/',
-        'https://res.cloudinary.com/shaifarfan/image/upload/c_fill,w_1200,h_630,g_auto/'
-      ),
+      src: cloudinaryImageResize({
+        imageUrl: frontmatter.cover,
+        width: 1200,
+        height: 630,
+      }),
       alt: frontmatter.coverAlt || frontmatter.title,
     }
   : undefined;

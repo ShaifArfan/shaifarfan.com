@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogLayout from '../../layout/BlogLayout.astro';
+import { getEditLink } from '~/utils/getEditLink';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -12,7 +13,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const editLink = `https://github.com/shaifarfan/shaifarfan.com/blob/main/src/content/blog/${entry.slug}/index.mdx`;
+// const editLink = `https://github.com/shaifarfan/shaifarfan.com/blob/main/src/content/blog/${entry.slug}/index.mdx`;
+const editLink = getEditLink(entry.slug);
 ---
 
 <BlogLayout frontmatter={entry.data} editLink={editLink}>
