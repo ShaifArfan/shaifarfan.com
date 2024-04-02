@@ -18,7 +18,7 @@ npm create vite@latest
 
 This will already install `eslint` & create `eslintrc` file, which we will not use. We will set up ESLint manually.
 
-If you don’t have ESLint installed, first you need to install ESLint by:
+If you don’t have ESLint installed, then first you need to install ESLint by:
 
 ```bash
 npm i -D eslint
@@ -41,7 +41,7 @@ This will ask some questions that we need to answer based on the project you are
 ✔ What format do you want your config file to be in? · JavaScript
 ```
 
-After that, based on your answers, it will ask you to install some packages. You can choose "yes" and also select which package manager you want to use to install them.
+After that, based on your answers it will ask you to install some packages. You can choose "yes" and also select which package manager you want to use to install them.
 
 It will generate a new `eslintrc` file, which will replace the existing one if we have any. Since we chose the format of the config file to be `JavaScript`, the file name will be `.eslintrc.cjs` or `.eslintrc.js` based on your project.
 
@@ -53,7 +53,7 @@ It will generate a new `eslintrc` file, which will replace the existing one if w
 npx install-peerdeps --dev eslint-config-airbnb
 ```
 
-Once we have installed this, we need to extend the config in `eslintrc` file.
+Once we have installed this, then we need to extend the config in `eslintrc` file.
 
 ```js
 extends: ["airbnb", "airbnb/hooks"]
@@ -73,7 +73,7 @@ npm install eslint-config-airbnb-typescript \
 
 > If you are installing it in the future, make sure to check the latest recommended version [here](https://github.com/iamturns/eslint-config-airbnb-typescript?tab=readme-ov-file#2-install-dependencies-and-peer-dependencies)
 
-Once we have installed this, we can extend `airbnb-typescript` in our `eslintrc` file.
+Once we have installed this, then we can extend `airbnb-typescript` in our `eslintrc` file.
 
 ```js
 extends: [

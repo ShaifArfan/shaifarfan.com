@@ -22,3 +22,4 @@ TODO:
   - [ ] Tags
   - [ ] search
   - [ ] pagination
+- [ ] 404 page

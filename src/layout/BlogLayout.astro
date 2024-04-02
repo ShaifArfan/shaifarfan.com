@@ -33,9 +33,11 @@ const ogImage = frontmatter.cover
   description={frontmatter.description}
   image={ogImage}
 >
-  <div class="blog-content py-20">
+  <div class="blog-content py-10">
     <div class="mb-10">
-      <h1 class="mb-2 text-4xl font-semibold">{frontmatter.title}</h1>
+      <h1 class="mb-2 text-3xl font-semibold md:text-4xl">
+        {frontmatter.title}
+      </h1>
       <p class="mb-2 text-slate-500">
         📆 {formattedPublishDate(frontmatter.pubDate)}
       </p>
@@ -43,7 +45,11 @@ const ogImage = frontmatter.cover
     {
       frontmatter.cover && (
         <Image
-          src={frontmatter.cover}
+          src={cloudinaryImageResize({
+            imageUrl: frontmatter.cover,
+            height: 540,
+            width: 1080,
+          })}
           alt={frontmatter.coverAlt || frontmatter.title}
           title={frontmatter.coverCredit || frontmatter.title}
           quality={'high'}

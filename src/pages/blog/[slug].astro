@@ -13,7 +13,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-// const editLink = `https://github.com/shaifarfan/shaifarfan.com/blob/main/src/content/blog/${entry.slug}/index.mdx`;
 const editLink = getEditLink(entry.slug);
 ---
 
