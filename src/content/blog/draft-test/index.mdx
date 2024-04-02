@@ -1,12 +1,158 @@
 ---
-title: 'Testing Draft Blog Post'
+title: 'Airbnb Eslint & Prettier Setup With React.js & TypeScript'
 pubDate: 2024-04-02
-description: 'Excited to begin my blog journey, sharing insights. Built my website with Astro and TailwindCSS, open source on GitHub.'
-author: 'Astro Learner'
+description: 'Learn how to setup Eslint with Airbnb style guide & Prettier in a React.js & TypeScript project.'
 cover: 'https://res.cloudinary.com/shaifarfan/image/upload/v1710960794/shaifarfan.com/blog/setting-sail-my-first-steps-into-blogging/photo-1593642634315-48f5414c3ad9_bu2nnv.jpg'
 coverAlt: 'person using black laptop computer on brown wooden table'
 coverCredit: 'Photo by @dell from Unsplash'
 tags: []
 ---
 
-## this post is a draft
+## 01. Create project & setup initial Eslint
+
+First create a project using react & ts. You can use any framework or tool you want. For this example, I will be using `Vite` with ts.
+
+Let's create a project using Vite.
+
+```bash
+npm create vite@latest
+```
+
+This will already install `eslint` & create an `eslintrc` file. Which we will not use. We will set up the ESLint manually.
+
+If you don’t have ESLint installed, first you need to install ESLint by:
+
+```bash
+npm i -D eslint
+```
+
+Once we have ESLint in our project, we can start ESLint setup by running this command:
+
+```bash
+npm init @eslint/config
+```
+
+This will ask some question, that you need to answer based on the project you are working on.
+
+```txt
+✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · esm
+✔ Which framework does your project use? · react
+✔ Does your project use TypeScript? · No / Yes
+✔ Where does your code run? · browser
+✔ What format do you want your config file to be in? · JavaScript
+```
+
+After that based on your answers, It will ask you to install some packages now, for that you can choose yes and also choose which package manager you wanna use to install them.
+
+{/* Now you can see it will create a new `eslintrc` file for you */}
+It will generate a new `eslintrc` file, which will replace the existing one if you have any. Since we choose the format of the config file `JavaScript`, the file name will be `.eslintrc.cjs` or `.eslintrc.js` based on your project.
+
+## 02. Adding `Airbnb` ESLint Style Guide
+
+### Adding `eslint-config-airbnb`
+
+```bash
+npx install-peerdeps --dev eslint-config-airbnb
+```
+
+once we installed this, we need to extend our `eslintrc` file.
+
+```jsx
+extends: ["airbnb", "airbnb/hooks"]
+extends: ["airbnb-base"] //for non react project
+```
+
+### Adding `eslint-config-airbnb-typescript`
+
+Enhances Airbnb's ESLint config with TypeScript support
+
+```bash
+npm install eslint-config-airbnb-typescript \
+            @typescript-eslint/eslint-plugin@^7.0.0 \
+            @typescript-eslint/parser@^7.0.0 \
+            --save-dev
+```
+
+check the latest recommended version if you are installing it in the future. [here](https://github.com/iamturns/eslint-config-airbnb-typescript?tab=readme-ov-file#2-install-dependencies-and-peer-dependencies)
+
+once we installed this, we can extend `airbnb-typscript` in our `eslintrc` file.
+
+```jsx
+extends: [
+  'airbnb',
+	'airbnb-typescript', // [!code ++] //airbnb-typescript/base' for non react
+	'airbnb/hooks'
+]
+```
+
+Also, we need to add the `@typescript-eslint/parser` and add the tsconfig file path to `parserOptions.project` in our `eslintrc` file.
+
+```jsx
+parser: "@typescript-eslint/parser",
+parserOptions: {
+   project: "./tsconfig.json", // path of tsconfig file
+}
+```
+
+Also include the `eslintrc` file in our `tsconfig.json` file.
+
+```json
+"include": [
+	".eslintrc.cjs" // path of  eslintrc file
+]
+```
+
+## 03. Adding `Prettier` to our project.
+
+```bash
+npm install -D prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+After the installation, we need to extend it in our `eslintrc` file.
+
+```jsx
+
+extends: [
+..., // all the other extends,
+"plugin:prettier/recommended" // this should be the last one
+]
+```
+
+Now for our prettier configurations, we need to create a file called `.prettierrc.cjs` Now you can add your prettier rules in this file.
+
+```jsx
+module.exports = {
+  trailingComma: 'es5',
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+};
+```
+
+That’s it. Now you can add this two script to your package.json to find ESLint error and fix them.
+
+```json
+"lint": "eslint .",
+"lint:fix": "eslint . --fix",
+```
+
+**Try to reload the code editor, if you face any unexpected issue.**
+
+## 04. For VS Code.
+
+For VS Code, you can install ESLint & prettier extensions to take more advantage.
+
+Once you have these two extensions, you can add these settings in your `.vscode/settings.json` or you can add them in your global settings.
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
+Now you don’t need to run lint scripts to fix errors. Now, it will `automatically fix` all the auto fixable errors `on save`.

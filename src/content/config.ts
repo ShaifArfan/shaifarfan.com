@@ -7,7 +7,6 @@ const postsCollection = defineCollection({
       title: z.string(),
       pubDate: z.date(),
       description: z.string(),
-      author: z.string(),
       cover: z.string().optional(),
       // For local images
       // cover: image()
