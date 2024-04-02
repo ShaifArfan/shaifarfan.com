@@ -17,6 +17,7 @@ TODO:
 
 - [x] Add a blog
 - Blog Feature
+  - [x] Draft blog setup
   - [ ] Add estimated reading time & last modified date
   - [ ] Tags
   - [ ] search

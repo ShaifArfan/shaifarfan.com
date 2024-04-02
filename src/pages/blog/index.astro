@@ -3,8 +3,9 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layout/Layout.astro';
 import { Image } from 'astro:assets';
 import { formattedPublishDate } from '~/utils/date';
+import { getBlogPosts } from '~/utils/getBlog';
 
-const posts = await getCollection('blog');
+const posts = getBlogPosts(await getCollection('blog'));
 ---
 
 <Layout title="Blog">
