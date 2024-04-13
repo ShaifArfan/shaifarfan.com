@@ -28,7 +28,7 @@ export default function YTCard({ link, description, title }: Props) {
   };
 
   return (
-    <div className="not-prose mx-auto my-10 flex max-w-[820px] flex-col items-center gap-5 rounded-2xl bg-[#0A1321] p-9 md:flex-row md:gap-8">
+    <div className="not-prose mx-auto my-10 flex max-w-[820px] flex-col items-center gap-5 rounded-2xl  bg-slate-300 p-9 dark:bg-[#0A1321] md:flex-row md:gap-8">
       <div className="flex-1 text-center md:text-left">
         <img
           src={YTLogo.src}
