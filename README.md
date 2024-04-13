@@ -18,6 +18,7 @@ TODO:
 - [x] Add a blog
 - Blog Feature
   - [x] Draft blog setup
+  - [x] YouTube card
   - [ ] Add estimated reading time & last modified date
   - [ ] Tags
   - [ ] search

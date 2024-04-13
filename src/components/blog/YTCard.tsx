@@ -17,13 +17,11 @@ export default function YTCard({ link, description, title }: Props) {
     }
 
     navigator.clipboard.writeText(link);
-
     setIsCopied(true);
 
     const id = setTimeout(() => {
       setIsCopied(false);
     }, 2000);
-
     setTimeOutId(id);
   };
 
