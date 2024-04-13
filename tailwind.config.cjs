@@ -8,7 +8,7 @@ module.exports = {
         inter: ['Inter', 'serif'],
       },
       colors: {
-        darkBlue: '#0C101B',
+        darkBlue: '#080C14',
         primary: '#3858CA',
         brand: {
           50: '#ecf1ff',
