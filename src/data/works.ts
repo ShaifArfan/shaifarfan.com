@@ -14,7 +14,7 @@ export default [
     detailsLink: 'https://github.com/ShaifArfan/meal-khuj',
   },
   {
-    title: "Shaif'f Cuisine",
+    title: "Shaif's Cuisine",
     imgUrl:
       'https://raw.githubusercontent.com/ShaifArfan/shaif-s-cuisine/main/readmeImg/banner.png',
     tech: ['HTML', 'CSS', 'Netlify'],

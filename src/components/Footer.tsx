@@ -3,9 +3,9 @@ import Link from './Link';
 
 function Footer() {
   return (
-    <div className="layout-container  rounded-t-lg bg-slate-800 py-5 text-center text-gray-300">
+    <div className="layout-container rounded-t-lg bg-slate-800 py-5 text-center text-gray-300">
       <a href="/" className="block text-xl font-semibold md:text-2xl">
-        Shiaf Arfan
+        Shaif Arfan
       </a>
       <a
         href="mailto:webcifar@gmail.com"
@@ -15,8 +15,8 @@ function Footer() {
       </a>
       <ul className="flex items-center justify-center gap-2 py-3">
         {siteInfo.socialLinks.map((link) => (
-          <li key={link.href} className="text-xl">
-            <Link href={link.href} target="_blank" aria-label={link.text}>
+          <li key={link.href} className="text-xl" aria-label={link.text}>
+            <Link href={link.href} target="_blank">
               <link.icon />
             </Link>
           </li>
