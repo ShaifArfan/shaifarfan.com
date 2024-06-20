@@ -12,7 +12,7 @@
     "lint:fix": "eslint src --fix"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.3.1",
+    "@astrojs/mdx": "^3.1.1",
     "@astrojs/react": "^3.6.0",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
