@@ -1,4 +1,5 @@
 import Link from './Link';
+import OpenToHireModal from './OpenToHire/OpenToHireModal';
 
 function About() {
   return (
@@ -6,7 +7,7 @@ function About() {
       <img
         src="https://avatars.githubusercontent.com/u/38496311?v=4"
         alt="Arfan"
-        className=" w-full max-w-[300px] rounded-full object-cover md:w-6/12"
+        className="w-full max-w-[300px] rounded-full object-cover md:w-6/12"
       />
 
       <div className="w-full text-center md:w-6/12 md:text-left">
@@ -16,7 +17,7 @@ function About() {
         <p className="mt-3 font-inter text-lg text-gray-600 dark:text-gray-300 md:text-xl">
           Experienced Web Developer and Educator
         </p>
-        <p className=" mt-3 text-base text-gray-600 dark:text-gray-400">
+        <p className="mt-3 text-base text-gray-600 dark:text-gray-400">
           <span>
             Welcome to my portfolio! I specialize in crafting innovative
             solutions with comprehensive full-stack expertise in JavaScript and
@@ -40,7 +41,7 @@ function About() {
           </span>
         </p>
 
-        <div className="mt-1 block " />
+        <div className="mt-1 block" />
 
         <div className="mt-5 flex justify-center gap-3 md:justify-start">
           <a href="#works">
@@ -48,6 +49,7 @@ function About() {
               See My Works
             </button>
           </a>
+          <OpenToHireModal />
         </div>
       </div>
     </div>
