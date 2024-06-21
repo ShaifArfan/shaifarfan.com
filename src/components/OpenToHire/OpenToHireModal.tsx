@@ -1,36 +1,39 @@
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
+import { siteInfo } from '~/data/site-info';
 import OpenToHireBtn from '../buttons/OpenToHireBtn';
+import Link from '../Link';
 
 function OpenToHireModal() {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger>
+    <Dialog>
+      <DialogTrigger>
         <OpenToHireBtn>Open To Hire</OpenToHireBtn>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>I&apos;m Open To Hire!</DialogTitle>
+          <DialogDescription>
+            <p>
+              I specialize in JavaScript for both front-end and back-end
+              development. Ready to bring your project to life? Let&apos;s
+              collaborate!
+            </p>
+            <p className="pt-2">
+              To discuss your needs, email me at{' '}
+              <Link href={`mailto:${siteInfo.email}`}>{siteInfo.email}</Link>
+            </p>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   );
 }
 
