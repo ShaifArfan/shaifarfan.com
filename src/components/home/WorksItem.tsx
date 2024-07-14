@@ -24,7 +24,7 @@ function WorksItem({ imgUrl, title, tech, detailsLink }: Props) {
           {tech.map((item) => (
             <span
               key={item}
-              className="inline-block rounded-md bg-slate-200 px-2 py-1 dark:bg-slate-900"
+              className="inline-block rounded-md bg-slate-200 px-2 py-1 dark:bg-slate-800"
             >
               {item}
             </span>
