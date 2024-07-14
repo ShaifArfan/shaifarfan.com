@@ -3,7 +3,7 @@ import Link from './Link';
 
 function Footer() {
   return (
-    <div className="layout-container rounded-t-lg bg-slate-800 py-5 text-center text-gray-300">
+    <div className="layout-container rounded-t-lg bg-slate-300 py-5 text-center text-gray-800 dark:bg-slate-900 dark:text-gray-300">
       <a href="/" className="block text-xl font-semibold md:text-2xl">
         Shaif Arfan
       </a>

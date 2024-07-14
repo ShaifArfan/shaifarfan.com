@@ -30,6 +30,9 @@ function OpenToHireModal() {
               To discuss your needs, email me at{' '}
               <Link href={`mailto:${siteInfo.email}`}>{siteInfo.email}</Link>
             </p>
+            <p className="pt-2">
+              Find my resume at <Link href="/resume.pdf">resume.pdf</Link>
+            </p>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

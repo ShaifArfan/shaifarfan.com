@@ -71,15 +71,7 @@ export default defineConfig({
       ],
     },
   },
-  // mdx: {
-  // shikiConfig: {
-  //   theme: 'github-dark',
-  //   transformers: [
-  //     transformerMetaHighlight(),
-  //     transformerNotationDiff(),
-  //     transformerNotationHighlight(),
-  //     transformerCompactLineOptions(),
-  //   ],
-  // },
-  // },
+  redirects: {
+    '/resume': '/resume.pdf',
+  },
 });

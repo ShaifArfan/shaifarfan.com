@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from './Link';
+import Link from '../Link';
 
 interface Props {
   imgUrl: string;
@@ -10,27 +10,27 @@ interface Props {
 
 function WorksItem({ imgUrl, title, tech, detailsLink }: Props) {
   return (
-    <div className="bg-slate-300 dark:bg-slate-800 rounded-lg overflow-hidden">
+    <div className="overflow-hidden rounded-lg bg-slate-300 dark:bg-slate-900">
       <img
         src={imgUrl}
         alt="work"
-        className="w-full h-36 md:h-48 object-cover"
+        className="h-36 w-full object-cover md:h-48"
       />
-      <div className="w-full p-5 text-gray-600 dark:text-gray-300 ">
-        <h3 className="text-lg md:text-xl mb-2 md:mb-3 font-semibold">
+      <div className="w-full p-5 text-gray-600 dark:text-gray-300">
+        <h3 className="mb-2 text-lg font-semibold md:mb-3 md:text-xl">
           {title}
         </h3>
-        <p className="flex flex-wrap gap-2 flex-row items-center justify-start text-xs md:text-sm ">
+        <p className="flex flex-row flex-wrap items-center justify-start gap-2 text-xs md:text-sm">
           {tech.map((item) => (
             <span
               key={item}
-              className="inline-block px-2 py-1 bg-slate-200 dark:bg-slate-900 rounded-md"
+              className="inline-block rounded-md bg-slate-200 px-2 py-1 dark:bg-slate-900"
             >
               {item}
             </span>
           ))}
         </p>
-        <div className="mt-3 cursor-pointer ">
+        <div className="mt-3 cursor-pointer">
           <Link href={detailsLink} target="_blank" rel="noreferrer">
             Details 🔗
           </Link>

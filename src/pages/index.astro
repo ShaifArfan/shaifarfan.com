@@ -1,12 +1,12 @@
 ---
-import About from '../components/About';
-import Works from '../components/Works';
+import About from '../components/home/Hero.astro';
+import Works from '../components/home/Works';
 import Layout from '../layout/Layout.astro';
 ---
 
 <Layout>
   <div class="min-h-screen font-inter">
-    <About client:load />
+    <About />
     <Works />
   </div>
 </Layout>

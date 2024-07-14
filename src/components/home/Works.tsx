@@ -1,13 +1,20 @@
 import React from 'react';
-import works from '../data/works';
-import SectionTitle from './SectionTitle';
+import works from '../../data/works';
+import SectionTitle from '../SectionTitle';
 import WorksItem from './WorksItem';
-import Link from './Link';
+import Link from '../Link';
 
 function Works() {
   return (
     <div className="py-12">
-      <SectionTitle id="works">Recent Works </SectionTitle>
+      <div className="mb-5">
+        <SectionTitle id="works">Recent Works </SectionTitle>
+        <p className="mt-2 max-w-[500px] text-base text-gray-600 dark:text-gray-400">
+          This list includes both my personal and professional projects,
+          showcasing my expertise in developing dynamic web applications using
+          JavaScript and React.js.
+        </p>
+      </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {works.map((work) => (
           <WorksItem
