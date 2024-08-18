@@ -1,13 +1,25 @@
 import { useState } from 'react';
-import YTLogo from '../../assets/icons/yt-logo.svg';
 
+import YouTubeLogo from '../../assets/icons/yt-logo.svg';
+import GitHubLogo from '../../assets/icons/GitHub.svg';
+
+const logoData = {
+  youTube: YouTubeLogo,
+  github: GitHubLogo,
+};
 interface Props {
   title: string;
   description?: string;
   link: string;
+  logo: keyof typeof logoData;
 }
 
-export default function YTCard({ link, description, title }: Props) {
+export default function ExternalLinkCard({
+  logo,
+  link,
+  description,
+  title,
+}: Props) {
   const [isCopied, setIsCopied] = useState(false);
   const [timeOutId, setTimeOutId] = useState<NodeJS.Timeout>();
 
@@ -26,13 +38,16 @@ export default function YTCard({ link, description, title }: Props) {
   };
 
   return (
-    <div className="not-prose mx-auto my-10 flex max-w-[820px] flex-col items-center gap-5 rounded-2xl  bg-slate-300 p-9 dark:bg-[#0A1321] md:flex-row md:gap-8">
+    <div className="not-prose mx-auto my-10 flex max-w-[820px] flex-col items-center gap-5 rounded-2xl bg-slate-300 p-9 dark:bg-[#0A1321] md:flex-row md:gap-8">
       <div className="flex-1 text-center md:text-left">
-        <img
-          src={YTLogo.src}
-          className="mx-auto h-5 md:ml-0"
-          alt="YouTube Logo"
-        />
+        <div className="mx-auto w-max rounded-md bg-white p-1 md:ml-0">
+          <img
+            src={logoData[logo].src}
+            color="white"
+            className="mx-auto h-6 md:ml-0"
+            alt="Logo"
+          />
+        </div>
         <h3 className="my-3 text-2xl font-semibold">{title}</h3>
         <p className="text-sm">
           {description ||

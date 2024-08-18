@@ -8,6 +8,8 @@ coverCredit: ''
 tags: ['react', 'hooks', 'form', 'custom-hook']
 ---
 
+import ExternalLinkCard from '~/components/blog/ExternalLinkCard';
+
 ### Introduction
 
 Handling forms in React can be a tedious task. That's why there are libraries like `Formik`, `React Hook Form`, etc., to simplify the process, and they do the job pretty well. But if you are working on a small project or don't want to add a library for form handling, you can easily create a custom hook to handle forms. That's exactly what we'll do today.
@@ -23,6 +25,14 @@ Our hook will include three main functions:
 - **resetForm:** Resets the form to its initial values
 
 Let's dive in!
+
+<ExternalLinkCard
+  logo="github"
+  client:load
+  link="https://github.com/ShaifArfan/useForm-hook-example"
+  title="Github Repo Example"
+  description="I have created a Github repo where you will find the example code for this blog."
+/>
 
 ### Set Up the Hook
 
@@ -340,4 +350,4 @@ function Form() {
 
 In this example, we import the `useForm` hook and initialize it with the form’s initial values. We then extract `values`, `getInputProps` and `resetForm` from the hook. Then we just need to spread the `getInputProps` function's return values to the input fields. Finally, we use the `resetForm` function to reset the form to its initial values when the reset button is clicked..
 
-Now, you can easily handle forms in React. Although this example is simple, you can extend it to manage more complex forms. You can also add validation, error handling, and other features as needed. If you require more advanced functionality, you can always use to third-party libraries. But for simle forms, this custom hook will be enough. It will keep your code clean and easy to maintain.
+Now, you can easily handle forms in React. Although this example is simple, you can extend it to manage more complex forms. You can also add validation, error handling, and other features as needed. If you require more advanced functionality, you can always use to third-party libraries. But for simle forms, this custom hook will be enough. It will keep your code clean and easy to maintain.ExternalLinkCardExternalLinkCardYTCard: ExternalLinkCardExternalLinkCard~/components/blog/ExternalLinkCard
