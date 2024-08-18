@@ -5,16 +5,26 @@ description: ''
 cover: ''
 coverAlt: ''
 coverCredit: ''
-tags: []
+tags: ['react', 'hooks', 'form', 'custom-hook']
 ---
 
 ### Introduction
 
 Handling forms in React can be a tedious task. That's why there are libraries like `Formik`, `React Hook Form`, etc., to simplify the process, and they do the job pretty well. But if you are working on a small project or don't want to add a library for form handling, you can easily create a custom hook to handle forms. That's exactly what we'll do today.
 
-We’re going to keep things simple and easy to use. Our main focus will be on handling value changes for all kinds of input fields whether it’s text, textarea, select, checkbox, radio, and more. We will also have a reset function to reset the form to its initial values. Let's get started.
+We’re going to keep things simple and easy to use. Also, we need to make sure it works for all kinds of input fields whether it’s text, textarea, select, checkbox, radio, and more.
 
-### Create a Custom Hook
+The key idea is that we’ll pass the initial values of the form to the hook, and it will return the values & some functions to handle the form.
+
+Our hook will include three main functions:
+
+- **getInputProps:** Creates common input field properties
+- **handleFieldChange:** Manages changes to input values (`onChange` event handler)
+- **resetForm:** Resets the form to its initial values
+
+Let's dive in!
+
+### Set Up the Hook
 
 If you’re new to React hooks, they’re functions that let you reuse stateful logic across your components. Let’s start by creating one for handling forms. React hooks should always start with `use`, so we’ll name our custom hook `useForm`.
 
@@ -28,8 +38,6 @@ First, let’s create a custom hook called `useForm` in a new file named `useFor
     └── hooks
         └── useForm.ts
 ```
-
-The key idea is that we’ll pass the initial values of the form to the hook, and it will return the current values, along with a function to handle field changes and a function to reset the form to its initial state.
 
 So, let’s create a default export function called `useForm` that takes in the initial values. Since we don’t know what those values will be, we’ll make it a generic type `T`. This way, it can be any type and will match the type of the initial values passed to it.
 
@@ -53,12 +61,13 @@ export default function useForm<T>(initialValues: T) {
 }
 ```
 
-Now, let's create reset function that will reset the form to its initial values. To do this, we can simply call setValues with the `initialValues`.
+### Reset Form Function
+
+Let's start with creating the reset function that will reset the form to its initial values. To do this, we can simply call setValues with the `initialValues`.
 
 {/* prettier-ignore */}
 ```tsx
 // src/hooks/useForm.ts
-
 import { useState } from 'react';
 
 export default function useForm<T>(initialValues: T) {
@@ -70,7 +79,9 @@ export default function useForm<T>(initialValues: T) {
 }
 ```
 
-Now for the fun part,let’s create the form field change handler function inside the hook. This function will take the change event as an argument and update the form values based on the field name. So, field name is import here. Your form field must have a `name` attribute, and it should match the key in the initial values object.
+### Form Field Change Handler
+
+Now for the fun part, let’s create the form field change handler function inside the hook. This function will take the change event as an argument and update the form values based on the field name.
 
 ```tsx
 const handleFieldChange = (
@@ -99,13 +110,58 @@ Next, let’s create a temporary variable `v` to store the value. Depending on t
 
 Finally, we need to update the form values using the `setValues` function. We’ll spread the existing values and then update the field value based on the field’s `name`.
 
-Finally, the last thing we need to do is return the `values`, `initialValues`, `handleFieldChange` function, and `resetForm` function from the hook.
+### Input Props Generator
+
+On form fields, we often have many attributes like name, value, type, checked, onChange, etc. Repeating these over and over can be tedious. To simplify this, we'll use getInputProps to generate shared attributes for the fields. This will keep our code cleaner and more maintainable.
+
+In this function, we will take the field name, type and value as arguments. The name should match the key in the initial values object, while the value is optional and primarily needed for radio fields. The type refers to the form field type, such as text, number, checkbox, radio etc.
+
+First, We will create a temporary variable `payload` to store the field props. The payload will have the following properties:
+
+- **name**: The name of the field. It's value will be the same as the argument passed to the function.
+- **value** (optional): The value of the field.
+- **onChange**: `onChange` event of the field. We will use the `handleFieldChange` function here.
+- **type**: The type of the field. It's value will be the same as the argument passed to the function.
+- **checked** (optional): The checked state of the checkbox or radio field. We will set it's value based on the value of the field.
+
+We'll start by adding the `name`, `onChange`, and `type` properties to the payload object. Then, depending on the type, we'll include other properties like `value` and `checked`. Finally, we'll return the payload object, which can be spread across the form field to apply these attributes easily.
+
+```tsx
+const getFieldProps = (name: keyof T, type = 'text', value?: string) => {
+  const payload: {
+    name: keyof T;
+    value?: string | number;
+    onChange: typeof handleFieldChange;
+    type: string;
+    checked?: boolean;
+  } = {
+    name,
+    onChange: handleFieldChange,
+    type,
+  };
+
+  if (type === 'checkbox') {
+    payload.checked = values[name] as boolean;
+  } else if (type === 'radio') {
+    if (!value) throw new Error('Radio button value is required');
+    payload.checked = values[name] === value;
+    payload.value = value;
+  } else {
+    payload.value = value || (values[name] as string | number);
+  }
+
+  return payload;
+};
+```
+
+### Final Hook Code
+
+Finally, the last thing we need to do is return the `values`, `initialValues`, `handleFieldChange` function, `resetForm` function, and `getFieldProps` function from the hook.
 
 The final code of the `useForm` hook will look like this: 👇
 
 ```tsx
 // src/hooks/useForm.ts
-
 import { useState } from 'react';
 
 export default function useForm<T>(initialValues: T) {
@@ -134,14 +190,43 @@ export default function useForm<T>(initialValues: T) {
     });
   };
 
+  const getFieldProps = (name: keyof T, type = 'input', value?: string) => {
+    const payload: {
+      name: keyof T;
+      value?: string | number;
+      onChange: typeof handleFieldChange;
+      type: string;
+      checked?: boolean;
+    } = {
+      name,
+      onChange: handleFieldChange,
+      type,
+    };
+
+    if (type === 'checkbox') {
+      payload.checked = values[name] as boolean;
+    } else if (type === 'radio') {
+      if (!value) throw new Error('Radio button value is required');
+      payload.checked = values[name] === value;
+      payload.value = value;
+    } else {
+      payload.value = value || (values[name] as string | number);
+    }
+
+    return payload;
+  };
+
   return {
-    values,
     initialValues,
     handleFieldChange,
     resetForm,
+    values,
+    getFieldProps,
   };
 }
 ```
+
+### Usage in a Component
 
 That’s it! We’ve created a custom hook to handle forms in React.js. Now, let’s see how to use this hook in a component.
 
@@ -151,15 +236,15 @@ Here’s an example of how to use the `useForm` hook in a component:
 import useForm from './hooks/useForm';
 
 function Form() {
-  const { values, handleFieldChange, resetForm } = useForm({
+  const { values, handleFieldChange, resetForm, getFieldProps } = useForm({
     name: 'initial name',
-    myNumber: 0,
-    email: '',
+    myNumber: 45,
+    email: 'test@example.com',
+    agreement: true,
+    myRange: 200,
+    myRadio: 'option2',
+    mySelect: 'option2',
     message: '',
-    agreement: false,
-    myRange: 500,
-    myRadio: '',
-    mySelect: '',
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -175,98 +260,56 @@ function Form() {
         <div className="flex flex-col">
           <div className="form__field">
             <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={values.name}
-              onChange={handleFieldChange}
-            />
+            <input id="name" {...getFieldProps('name', 'text')} />
           </div>
           <div className="form__field">
             <label htmlFor="myNumber">My Number:</label>
-            <input
-              type="number"
-              id="myNumber"
-              name="myNumber"
-              value={values.myNumber}
-              onChange={handleFieldChange}
-            />
+            <input id="myNumber" {...getFieldProps('myNumber', 'number')} />
           </div>
           <div className="form__field">
             <label htmlFor="email">Email:</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              value={values.email}
-              onChange={handleFieldChange}
-            />
+            <input id="email" {...getFieldProps('email', 'email')} />
           </div>
           <div className="form__field form__field--checkbox">
-            <input
-              type="checkbox"
-              name="agreement"
-              id="agreement"
-              value={'true'}
-              checked={values.agreement}
-              onChange={handleFieldChange}
-            />
+            <input id="agreement" {...getFieldProps('agreement', 'checkbox')} />
             <label htmlFor="agreement">Agree:</label>
           </div>
           <div className="form__field">
             <label htmlFor="myRange">My Range: {values.myRange}</label>
             <input
-              type="range"
-              name="myRange"
               id="myRange"
               min={100}
               max={1000}
               step={100}
-              value={values.myRange}
-              onChange={handleFieldChange}
+              {...getFieldProps('myRange', 'range')}
             />
           </div>
           <div className="form__field form__field--radio">
             <div>
               <input
-                type="radio"
-                name="myRadio"
                 id="option1"
-                value="option1"
-                onChange={handleFieldChange}
+                {...getFieldProps('myRadio', 'radio', 'option1')}
               />
               <label htmlFor="option1">Option1</label>
             </div>
             <div>
               <input
-                type="radio"
-                name="myRadio"
                 id="option2"
-                value={'option2'}
-                onChange={handleFieldChange}
+                {...getFieldProps('myRadio', 'radio', 'option2')}
               />
               <label htmlFor="option2">Option2</label>
             </div>
             <div>
               <input
-                type="radio"
-                name="myRadio"
                 id="option3"
-                value={'option3'}
-                onChange={handleFieldChange}
+                {...getFieldProps('myRadio', 'radio', 'option3')}
               />
               <label htmlFor="option3">Option3</label>
             </div>
           </div>
           <div className="form__field">
             <label htmlFor="mySelect">My Select</label>
-            <select
-              name="mySelect"
-              id="mySelect"
-              value={values.mySelect}
-              onChange={handleFieldChange}
-            >
+            <select id="mySelect" {...getFieldProps('mySelect', 'select')}>
               <option value="option1">Option1</option>
               <option value="option2">Option2</option>
               <option value="option3">Option3</option>
@@ -293,10 +336,8 @@ function Form() {
     </div>
   );
 }
-
-export default Form;
 ```
 
-In this example, we import the `useForm` hook and initialize it with the form’s initial values. We then extract `values`, `handleFieldChange`, and `resetForm` from the hook. For the form field elements, we use `values` to set the field value and `handleFieldChange` to handle changes. It’s important that the `name` attribute of each field matches a key in the initial values object. Finally, we use the `resetForm` function to reset the form to its initial values when the reset button is clicked..
+In this example, we import the `useForm` hook and initialize it with the form’s initial values. We then extract `values`, `getInputProps` and `resetForm` from the hook. Then we just need to spread the `getInputProps` function's return values to the input fields. Finally, we use the `resetForm` function to reset the form to its initial values when the reset button is clicked..
 
 Now, you can easily handle forms in React. Although this example is simple, you can extend it to manage more complex forms. You can also add validation, error handling, and other features as needed. If you require more advanced functionality, you can always use to third-party libraries. But for simle forms, this custom hook will be enough. It will keep your code clean and easy to maintain.
