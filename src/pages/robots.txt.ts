@@ -1,11 +1,14 @@
 import type { APIRoute } from 'astro';
+import { isNetlifyContextProd } from '~/utils/isNetlifyContextProd';
 
-const robotsTxt = `
+const robotsTxt = isNetlifyContextProd
+  ? `
 User-agent: *
 Allow: /
 
 Sitemap: ${new URL('sitemap-index.xml', import.meta.env.SITE).href}
-`.trim();
+`.trim()
+  : 'User-agent: *\nDisallow: /\n';
 
 export const GET: APIRoute = () => {
   return new Response(robotsTxt, {

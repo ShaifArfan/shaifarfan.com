@@ -2,6 +2,12 @@
 import About from '../components/home/Hero.astro';
 import Works from '../components/home/Works';
 import Layout from '../layout/Layout.astro';
+import { isNetlifyContextProd } from '../utils/isNetlifyContextProd';
+
+console.log({
+  envProd: import.meta.env.PROD,
+  netProd: isNetlifyContextProd,
+});
 ---
 
 <Layout>
