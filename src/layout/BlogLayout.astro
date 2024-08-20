@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import Prose from '../components/blog/Prose.astro';
 import type { CollectionEntry } from 'astro:content';
+import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 
 interface Props {
   frontmatter: CollectionEntry<'blog'>['data'];
@@ -85,3 +86,30 @@ const ogImage = frontmatter.cover
     </Prose>
   </div>
 </Layout>
+
+<button
+  class="scrollToTopBtn fixed bottom-5 right-5 z-50 hidden cursor-pointer rounded-lg border-0 bg-slate-500 p-2 text-lg text-white dark:bg-blue-950"
+  ><HiOutlineChevronDoubleUp />
+</button>
+
+<script>
+  console.log('hello world');
+  document.addEventListener('astro:page-load', () => {
+    const scrollToTopBtn = document.querySelector(
+      '.scrollToTopBtn'
+    ) as HTMLElement;
+
+    if (!scrollToTopBtn) return;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollToTopBtn.style.display = 'block';
+      } else {
+        scrollToTopBtn.style.display = 'none';
+      }
+    });
+
+    scrollToTopBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
