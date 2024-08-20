@@ -19,7 +19,8 @@ TODO:
 - Blog Feature
   - [x] Draft blog setup
   - [x] YouTube card
-  - [ ] Add estimated reading time & last modified date
+  - [x] Add estimated reading time
+  - [ ] Add comments
   - [ ] Tags
   - [ ] search
   - [ ] pagination

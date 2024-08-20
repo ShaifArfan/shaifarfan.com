@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -43,6 +44,7 @@ export default defineConfig({
           target: '_blank',
         },
       ],
+      remarkReadingTime,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,

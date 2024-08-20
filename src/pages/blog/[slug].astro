@@ -12,11 +12,17 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, remarkPluginFrontmatter } = await entry.render();
 const editLink = getEditLink(entry.slug);
 ---
 
-<BlogLayout frontmatter={entry.data} editLink={editLink}>
+<BlogLayout
+  frontmatter={{
+    ...entry.data,
+    minutesRead: remarkPluginFrontmatter.minutesRead,
+  }}
+  editLink={editLink}
+>
   <Content />
 </BlogLayout>
 
