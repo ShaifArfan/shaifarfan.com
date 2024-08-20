@@ -6,6 +6,7 @@ import { ViewTransitions } from 'astro:transitions';
 import '~/styles/global.css';
 import Header from './header/Header.astro';
 import Footer from '~/components/Footer';
+// import NProgress from 'nprogress';
 
 export type Props = HeadProps;
 
@@ -13,31 +14,52 @@ const { ...head } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" transition:animate="none">
+<html lang="en">
   <head>
     <BaseHead {...head} />
     <ViewTransitions fallback="animate" />
   </head>
-  <body
-    transition:animate="fade"
-    class="flex min-h-[100vh] flex-col justify-between bg-white font-inter dark:bg-darkBlue"
-  >
-    <div>
-      <Header transition:persist />
-      <div class="layout-container dark:text-dark text-black dark:text-white">
-        <slot />
+  <body transition:animate="initial">
+    <div
+      transition:animate="fade"
+      class="flex min-h-[100vh] flex-col justify-between bg-white font-inter dark:bg-darkBlue"
+    >
+      <div>
+        <Header transition:persist />
+        <div class="layout-container dark:text-dark text-black dark:text-white">
+          <slot />
+        </div>
       </div>
-    </div>
-    <Footer />
-    <style is:global>
-      html {
-        scroll-behavior: smooth;
-      }
-      @media (prefers-reduced-motion: reduce) {
+      <Footer />
+      <style is:global>
         html {
-          scroll-behavior: auto;
+          scroll-behavior: smooth;
         }
-      }
-    </style>
+        @media (prefers-reduced-motion: reduce) {
+          html {
+            scroll-behavior: auto;
+          }
+        }
+      </style>
+
+      <!-- https://unpkg.com/nprogress@0.2.0/nprogress.js https://unpkg.com/nprogress@0.2.0/nprogress.css -->
+    </div>
+
+    <script>
+      import NProgress from 'nprogress';
+      import 'nprogress/nprogress.css';
+
+      NProgress.configure({
+        showSpinner: false,
+      });
+
+      document.addEventListener('astro:before-preparation', () => {
+        NProgress.start();
+      });
+
+      document.addEventListener('astro:page-load', () => {
+        NProgress.done();
+      });
+    </script>
   </body>
 </html>
