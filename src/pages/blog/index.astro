@@ -6,7 +6,10 @@ import { formattedPublishDate } from '~/utils/date';
 import { getBlogPosts } from '~/utils/getBlog';
 import { cloudinaryImageResize } from '~/utils/cloudinaryImageResize';
 
-const posts = getBlogPosts(await getCollection('blog'));
+const posts = getBlogPosts(await getCollection('blog')).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 ---
 
 <Layout title="Blog">
@@ -43,9 +46,19 @@ const posts = getBlogPosts(await getCollection('blog'));
                 <h2 class="mb-2 text-2xl font-semibold text-slate-800 dark:text-slate-300">
                   {post.data.title}
                 </h2>
-                <p class="mb-2 text-sm text-slate-500">
-                  {formattedPublishDate(post.data.pubDate)}
-                </p>
+                <div class="mb-2 flex items-center justify-start">
+                  <p class="text-sm text-slate-500">
+                    {formattedPublishDate(post.data.pubDate)}
+                  </p>
+                  <p class="mx-2 text-slate-500">•</p>
+                  <p class="text-sm text-slate-500">
+                    (
+                    {post
+                      .render()
+                      .then((item) => item.remarkPluginFrontmatter.minutesRead)}
+                    )
+                  </p>
+                </div>
                 <p class="text-slate-700 dark:text-slate-500">
                   {post.data.description}
                 </p>

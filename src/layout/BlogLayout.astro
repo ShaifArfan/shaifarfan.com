@@ -5,7 +5,9 @@ import type { CollectionEntry } from 'astro:content';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 
 interface Props {
-  frontmatter: CollectionEntry<'blog'>['data'];
+  frontmatter: CollectionEntry<'blog'>['data'] & {
+    minutesRead: string;
+  };
   editLink: string;
 }
 
@@ -65,6 +67,7 @@ const ogImage = frontmatter.cover
     <div class="mb-10 mt-5 flex justify-between">
       <div>
         <!-- TODO: read time -->
+        <p class="text-slate-500">🕝 {frontmatter.minutesRead}</p>
       </div>
       <Link href={editLink} target="_blank">📝 Edit on GitHub</Link>
     </div>
@@ -93,7 +96,6 @@ const ogImage = frontmatter.cover
 </button>
 
 <script>
-  console.log('hello world');
   document.addEventListener('astro:page-load', () => {
     const scrollToTopBtn = document.querySelector(
       '.scrollToTopBtn'
