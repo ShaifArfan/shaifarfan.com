@@ -3,10 +3,12 @@ import BaseHead, {
   type Props as HeadProps,
 } from '../components/BaseHead.astro';
 import { ViewTransitions } from 'astro:transitions';
-import '~/styles/global.css';
 import Header from './header/Header.astro';
 import Footer from '~/components/Footer';
-// import NProgress from 'nprogress';
+
+// CSS
+import 'nprogress/nprogress.css';
+import '~/styles/global.css';
 
 export type Props = HeadProps;
 
@@ -15,18 +17,20 @@ const { ...head } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
+  <head transition:animate="none">
     <BaseHead {...head} />
     <ViewTransitions fallback="animate" />
   </head>
-  <body transition:animate="initial">
+  <body>
     <div
-      transition:animate="fade"
       class="flex min-h-[100vh] flex-col justify-between bg-white font-inter dark:bg-darkBlue"
     >
       <div>
-        <Header transition:persist />
-        <div class="layout-container dark:text-dark text-black dark:text-white">
+        <Header transition:persist transition:animate="none" />
+        <div
+          transition:animate="fade"
+          class="layout-container dark:text-dark text-black dark:text-white"
+        >
           <slot />
         </div>
       </div>
@@ -41,13 +45,10 @@ const { ...head } = Astro.props;
           }
         }
       </style>
-
-      <!-- https://unpkg.com/nprogress@0.2.0/nprogress.js https://unpkg.com/nprogress@0.2.0/nprogress.css -->
     </div>
 
     <script>
       import NProgress from 'nprogress';
-      import 'nprogress/nprogress.css';
 
       NProgress.configure({
         showSpinner: false,

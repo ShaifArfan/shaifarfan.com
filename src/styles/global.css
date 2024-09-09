@@ -22,3 +22,15 @@
 .blog-content :is(h1, h2, h3, h4):hover .autolink-header {
   opacity: 1;
 }
+
+#nprogress .bar {
+  --bar-color: #0096ff;
+  height: 3px;
+  background: var(--bar-color);
+}
+
+#nprogress .peg {
+  box-shadow:
+    0 0 10px var(--bar-color),
+    0 0 5px var(--bar-color);
+}
