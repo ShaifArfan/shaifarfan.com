@@ -46,6 +46,7 @@ export default function ExternalLinkCard({
             color="white"
             className="mx-auto h-6 md:ml-0"
             alt="Logo"
+            loading="lazy"
           />
         </div>
         <h3 className="my-3 text-2xl font-semibold">{title}</h3>
