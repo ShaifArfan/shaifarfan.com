@@ -9,7 +9,6 @@ import {
 
 import { siteInfo } from '~/data/site-info';
 import OpenToHireBtn from '../buttons/OpenToHireBtn';
-import Link from '../Link';
 
 function OpenToHireModal() {
   return (
@@ -21,21 +20,30 @@ function OpenToHireModal() {
         <DialogHeader>
           <DialogTitle>I&apos;m Open To Hire!</DialogTitle>
           <DialogDescription>
-            <p>
+            <span className="block">
               I specialize in JavaScript for both front-end and back-end
               development. Ready to bring your project to life? Let&apos;s
               collaborate!
-            </p>
-            <p className="pt-2">
+            </span>
+            <span className="block pt-2">
               To discuss your needs, email me at{' '}
-              <Link href={`mailto:${siteInfo.email}`}>{siteInfo.email}</Link>
-            </p>
-            <p className="pt-2">
+              <a
+                href={`mailto:${siteInfo.email}`}
+                className="link font-semibold dark:font-normal"
+              >
+                {siteInfo.email}
+              </a>
+            </span>
+            <span className="block pt-2">
               Find my resume at{' '}
-              <Link href="/resume.pdf" target="_blank">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                className="link font-semibold dark:font-normal"
+              >
                 resume.pdf
-              </Link>
-            </p>
+              </a>
+            </span>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

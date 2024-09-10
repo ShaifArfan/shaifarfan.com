@@ -1,5 +1,5 @@
 @import url('./tailwind.css');
-@import url('./prose.scss');
+/* @import url('./prose.scss'); */
 
 .autolink-header {
   display: inline-block;

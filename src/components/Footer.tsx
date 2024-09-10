@@ -1,5 +1,4 @@
 import { siteInfo } from '~/data/site-info';
-import Link from './Link';
 
 function Footer() {
   return (
@@ -13,24 +12,33 @@ function Footer() {
       >
         shaifarfan08@gmail.com
       </a>
-      <ul className="flex items-center justify-center gap-2 py-3">
+      <ul
+        className="flex items-center justify-center gap-2 py-3"
+        aria-label="Social Links"
+      >
         {siteInfo.socialLinks.map((link) => (
-          <li key={link.href} className="text-xl" aria-label={link.text}>
-            <Link href={link.href} target="_blank">
-              <link.icon />
-            </Link>
+          <li key={link.href} className="text-xl">
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              title={link.platform}
+              aria-label={link.text}
+            >
+              <link.icon aria-label={`${link.platform} Icon`} />
+            </a>
           </li>
         ))}
       </ul>
       <p className="font-regular mt-2 text-sm text-gray-500">
         © shaifarfan.com {new Date().getFullYear()}. All rights reserved
       </p>
-      <Link
+      <a
         href="/privacy-policy"
         className="font-regular mt-2 text-sm text-gray-500"
       >
         privacy policy 🔒
-      </Link>
+      </a>
     </div>
   );
 }
