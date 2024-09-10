@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import OpenToHireModal from '../OpenToHire/OpenToHireModal';
+import profileImg from '../../assets/profile.jpg';
 ---
 
 <div
   class="flex flex-col items-center justify-center gap-10 py-[50px] md:flex-row md:gap-20 md:py-[150px]"
 >
   <Image
-    src="https://avatars.githubusercontent.com/u/38496311?v=4"
+    src={profileImg}
     alt="Profile Picture"
     class="w-full max-w-[300px] rounded-full object-cover md:w-6/12"
     height={300}
