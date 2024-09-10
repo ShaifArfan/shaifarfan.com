@@ -84,7 +84,7 @@
     @apply text-gray-600 dark:text-slate-400;
   }
   .link {
-    @apply relative inline-block text-primary after:absolute after:bottom-0 after:left-0 after:inline-block after:h-[1px] after:w-full after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in after:content-[''] hover:after:origin-left hover:after:scale-x-100;
+    @apply relative inline-block text-brand-400 after:absolute after:bottom-0 after:left-0 after:inline-block after:h-[1px] after:w-full after:origin-right after:scale-x-0 after:bg-brand-300 after:transition-transform after:duration-300 after:ease-in after:content-[''] hover:after:origin-left hover:after:scale-x-100 dark:text-brand-300;
   }
   .layout-container {
     @apply mx-auto w-[92%] max-w-5xl;

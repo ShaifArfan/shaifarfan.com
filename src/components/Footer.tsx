@@ -12,16 +12,20 @@ function Footer() {
       >
         shaifarfan08@gmail.com
       </a>
-      <ul className="flex items-center justify-center gap-2 py-3">
+      <ul
+        className="flex items-center justify-center gap-2 py-3"
+        aria-label="Social Links"
+      >
         {siteInfo.socialLinks.map((link) => (
-          <li key={link.href} className="text-xl" aria-label={link.text}>
+          <li key={link.href} className="text-xl">
             <a
               href={link.href}
               target="_blank"
               rel="noreferrer"
+              title={link.platform}
               aria-label={link.text}
             >
-              <link.icon />
+              <link.icon aria-label={`${link.platform} Icon`} />
             </a>
           </li>
         ))}
