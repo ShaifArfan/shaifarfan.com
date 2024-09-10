@@ -8,7 +8,7 @@ function Works() {
     <div className="py-12">
       <div className="mb-5">
         <SectionTitle id="works">Recent Works </SectionTitle>
-        <p className="mt-2 max-w-[500px] text-base text-gray-600 dark:text-gray-400">
+        <p className="p-color mt-2 max-w-[500px] text-base">
           This list includes both my personal and professional projects,
           showcasing my expertise in developing dynamic web applications using
           JavaScript and React.js.

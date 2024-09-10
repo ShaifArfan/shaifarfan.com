@@ -7,10 +7,7 @@ interface Props {
 
 function SectionTitle({ children, id }: Props) {
   return (
-    <h1
-      id={id && id}
-      className="text-3xl font-bold text-slate-700 dark:text-slate-300"
-    >
+    <h1 id={id && id} className="title-color text-3xl font-bold">
       {children}
     </h1>
   );

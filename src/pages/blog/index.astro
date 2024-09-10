@@ -15,10 +15,8 @@ const posts = getBlogPosts(await getCollection('blog')).sort(
 <Layout title="Blog">
   <div class="py-[80px]">
     <div class="mb-10 text-center">
-      <h1 class="primary-title">Blog Posts</h1>
-      <p class="mt-2 text-slate-500">
-        Insights from My Software Engineering Journey
-      </p>
+      <h1 class="title-color text-2xl font-semibold md:text-4xl">Blog Posts</h1>
+      <p class="p-color mt-2">Insights from My Software Engineering Journey</p>
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
       {
@@ -60,9 +58,7 @@ const posts = getBlogPosts(await getCollection('blog')).sort(
                     )
                   </p>
                 </div>
-                <p class="mt-3 text-slate-700 dark:text-slate-500">
-                  {post.data.description}
-                </p>
+                <p class="p-color mt-3">{post.data.description}</p>
               </div>
             </div>
           </a>
