@@ -23,7 +23,7 @@ if (currentPath[currentPath.length - 1] === '/') {
   <div class="layout-container">
     <TopHeader />
     <div
-      class="my-3 flex items-center justify-between text-slate-800 dark:text-white"
+      class="my-3 flex items-center justify-between text-slate-700 dark:text-white"
     >
       <a href="/" class="text-xl font-semibold"> ARFAN✨ </a>
       <ul class="flex gap-3">
@@ -33,8 +33,8 @@ if (currentPath[currentPath.length - 1] === '/') {
               currentPath === link.href.slice(1) ||
               pathname.startsWith(`${link.href}/`);
             return (
-              <li>
-                <a href={link.href} class={isActive ? ' text-brand-600' : ''}>
+              <li class="text-md font-medium">
+                <a href={link.href} class={isActive ? 'text-brand-600' : ''}>
                   {link.name}
                 </a>
               </li>
