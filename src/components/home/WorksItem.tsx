@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from '../Link';
 
 interface Props {
   imgUrl: string;
@@ -31,9 +30,14 @@ function WorksItem({ imgUrl, title, tech, detailsLink }: Props) {
           ))}
         </p>
         <div className="mt-3 cursor-pointer">
-          <Link href={detailsLink} target="_blank" rel="noreferrer">
+          <a
+            href={detailsLink}
+            target="_blank"
+            rel="noreferrer"
+            className="link"
+          >
             Details 🔗
-          </Link>
+          </a>
         </div>
       </div>
     </div>

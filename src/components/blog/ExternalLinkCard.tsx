@@ -38,7 +38,7 @@ export default function ExternalLinkCard({
   };
 
   return (
-    <div className="not-prose mx-auto my-10 flex max-w-[820px] flex-col items-center gap-5 rounded-2xl bg-slate-300 p-9 dark:bg-[#0A1321] md:flex-row md:gap-8">
+    <div className="not-prose mx-auto my-10 flex max-w-[820px] flex-col items-center gap-5 rounded-2xl bg-slate-300 p-9 dark:bg-slate-800/[.5] md:flex-row md:gap-8">
       <div className="flex-1 text-center md:text-left">
         <div className="mx-auto w-max rounded-md bg-white p-1 md:ml-0">
           <img
@@ -55,7 +55,7 @@ export default function ExternalLinkCard({
             `I have also created a video tutorial on this blog. Check it out if you prefer video content`}
         </p>
       </div>
-      <div className="h-[1px] w-[75%] bg-brand-700 md:h-[90px] md:w-[1px]" />
+      <div className="h-[1px] w-[75%] bg-blue-700 md:h-[90px] md:w-[1px]" />
       <div className="flex-1 text-center">
         <p className="md:text-md mb-4 font-semibold md:text-xl">{link}</p>
         <div className="flex flex-col gap-3 md:flex-row md:gap-2">

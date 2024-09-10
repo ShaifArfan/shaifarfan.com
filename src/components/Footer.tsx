@@ -1,5 +1,4 @@
 import { siteInfo } from '~/data/site-info';
-import Link from './Link';
 
 function Footer() {
   return (
@@ -16,21 +15,26 @@ function Footer() {
       <ul className="flex items-center justify-center gap-2 py-3">
         {siteInfo.socialLinks.map((link) => (
           <li key={link.href} className="text-xl" aria-label={link.text}>
-            <Link href={link.href} target="_blank">
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={link.text}
+            >
               <link.icon />
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
       <p className="font-regular mt-2 text-sm text-gray-500">
         © shaifarfan.com {new Date().getFullYear()}. All rights reserved
       </p>
-      <Link
+      <a
         href="/privacy-policy"
         className="font-regular mt-2 text-sm text-gray-500"
       >
         privacy policy 🔒
-      </Link>
+      </a>
     </div>
   );
 }

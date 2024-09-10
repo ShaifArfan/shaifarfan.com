@@ -77,6 +77,9 @@
 
 /* Custom Styles */
 @layer components {
+  .link {
+    @apply relative inline-block text-primary after:absolute after:bottom-0 after:left-0 after:inline-block after:h-[1px] after:w-full after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in after:content-[''] hover:after:origin-left hover:after:scale-x-100;
+  }
   .layout-container {
     @apply mx-auto w-[92%] max-w-5xl;
   }
@@ -84,14 +87,14 @@
     @apply rounded-lg px-5 py-2 text-base font-medium transition-colors duration-300 ease-in-out;
   }
   .secondary-btn {
-    @apply btn border-2 border-brand-600 bg-brand-600 bg-opacity-[.12] text-brand-600 hover:bg-opacity-100 hover:text-white dark:text-white;
+    @apply btn border-2 border-brand-400 bg-brand-400 bg-opacity-[.12] text-brand-400 hover:bg-opacity-100 hover:text-white dark:text-white;
   }
 
   .primary-btn {
-    @apply btn border-2 border-brand-600 bg-brand-600 bg-opacity-100 text-white hover:bg-opacity-[.12] hover:text-brand-600 dark:text-white dark:hover:bg-opacity-[.20];
+    @apply btn border-2 border-brand-400 bg-brand-400 bg-opacity-100 text-white hover:bg-opacity-[.12] hover:text-brand-400 dark:text-white dark:hover:bg-opacity-[.20];
   }
 
   .primary-title {
-    @apply text-2xl font-semibold text-brand-600 md:text-4xl;
+    @apply text-2xl font-semibold text-brand-400 md:text-4xl;
   }
 }

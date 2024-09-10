@@ -2,7 +2,6 @@ import React from 'react';
 import works from '../../data/works';
 import SectionTitle from '../SectionTitle';
 import WorksItem from './WorksItem';
-import Link from '../Link';
 
 function Works() {
   return (
@@ -27,13 +26,14 @@ function Works() {
         ))}
       </div>
       <div className="mt-5">
-        <Link
+        <a
           href="https://github.com/shaifarfan"
           target="_blank"
           rel="noreferrer"
+          className="link"
         >
           more on GitHub...
-        </Link>
+        </a>
       </div>
     </div>
   );

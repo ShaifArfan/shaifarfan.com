@@ -14,7 +14,6 @@ interface Props {
 const { frontmatter, editLink } = Astro.props;
 import EmbedYouTube from '../components/EmbedYouTube';
 import { Image } from 'astro:assets';
-import Link from '~/components/Link';
 import { formattedPublishDate } from '~/utils/date';
 import { cloudinaryImageResize } from '~/utils/cloudinaryImageResize';
 
@@ -70,7 +69,11 @@ const ogImage = frontmatter.cover
         <!-- TODO: read time -->
         <p class="text-slate-500">🕝 {frontmatter.minutesRead}</p>
       </div>
-      <Link href={editLink} target="_blank">📝 Edit on GitHub</Link>
+      <a
+        href={editLink}
+        target="_blank"
+        class="link text-slate-500 hover:text-primary">📝 Edit on GitHub</a
+      >
     </div>
 
     <Prose>

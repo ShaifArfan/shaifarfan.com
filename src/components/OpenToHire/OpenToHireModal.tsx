@@ -9,7 +9,6 @@ import {
 
 import { siteInfo } from '~/data/site-info';
 import OpenToHireBtn from '../buttons/OpenToHireBtn';
-import Link from '../Link';
 
 function OpenToHireModal() {
   return (
@@ -28,13 +27,15 @@ function OpenToHireModal() {
             </p>
             <p className="pt-2">
               To discuss your needs, email me at{' '}
-              <Link href={`mailto:${siteInfo.email}`}>{siteInfo.email}</Link>
+              <a href={`mailto:${siteInfo.email}`} className="link">
+                {siteInfo.email}
+              </a>
             </p>
             <p className="pt-2">
               Find my resume at{' '}
-              <Link href="/resume.pdf" target="_blank">
+              <a href="/resume.pdf" target="_blank" className="link">
                 resume.pdf
-              </Link>
+              </a>
             </p>
           </DialogDescription>
         </DialogHeader>
