@@ -20,12 +20,12 @@ function OpenToHireModal() {
         <DialogHeader>
           <DialogTitle>I&apos;m Open To Hire!</DialogTitle>
           <DialogDescription>
-            <p>
+            <span className="block">
               I specialize in JavaScript for both front-end and back-end
               development. Ready to bring your project to life? Let&apos;s
               collaborate!
-            </p>
-            <p className="pt-2">
+            </span>
+            <span className="block pt-2">
               To discuss your needs, email me at{' '}
               <a
                 href={`mailto:${siteInfo.email}`}
@@ -33,8 +33,8 @@ function OpenToHireModal() {
               >
                 {siteInfo.email}
               </a>
-            </p>
-            <p className="pt-2">
+            </span>
+            <span className="block pt-2">
               Find my resume at{' '}
               <a
                 href="/resume.pdf"
@@ -43,7 +43,7 @@ function OpenToHireModal() {
               >
                 resume.pdf
               </a>
-            </p>
+            </span>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
