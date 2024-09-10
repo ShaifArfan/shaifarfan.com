@@ -23,8 +23,15 @@
   opacity: 1;
 }
 
+/* .dark #nprogress { */
+/* --bar-color: #3d5ccb; */
+/* } */
+
+#nprogress {
+  --bar-color: #4168f6;
+}
+
 #nprogress .bar {
-  --bar-color: #0096ff;
   height: 3px;
   background: var(--bar-color);
 }
