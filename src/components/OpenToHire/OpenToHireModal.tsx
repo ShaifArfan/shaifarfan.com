@@ -27,13 +27,20 @@ function OpenToHireModal() {
             </p>
             <p className="pt-2">
               To discuss your needs, email me at{' '}
-              <a href={`mailto:${siteInfo.email}`} className="link">
+              <a
+                href={`mailto:${siteInfo.email}`}
+                className="link font-semibold dark:font-normal"
+              >
                 {siteInfo.email}
               </a>
             </p>
             <p className="pt-2">
               Find my resume at{' '}
-              <a href="/resume.pdf" target="_blank" className="link">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                className="link font-semibold dark:font-normal"
+              >
                 resume.pdf
               </a>
             </p>
