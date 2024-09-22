@@ -9,6 +9,7 @@ import Footer from '~/components/Footer';
 // CSS
 import 'nprogress/nprogress.css';
 import '~/styles/global.css';
+import Posthog from '~/components/posthog.astro';
 
 export type Props = HeadProps;
 
@@ -19,6 +20,7 @@ const { ...head } = Astro.props;
 <html lang="en">
   <head transition:animate="none">
     <BaseHead {...head} />
+    <Posthog />
     <ViewTransitions fallback="animate" />
   </head>
   <body>
