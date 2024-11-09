@@ -1,4 +1,8 @@
-import { defineConfig, squooshImageService } from 'astro/config';
+import {
+  defineConfig,
+  squooshImageService,
+  sharpImageService,
+} from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
@@ -32,7 +36,7 @@ export default defineConfig({
   ],
   image: {
     domains: ['res.cloudinary.com'],
-    service: squooshImageService(),
+    service: sharpImageService(),
   },
   markdown: {
     rehypePlugins: [
