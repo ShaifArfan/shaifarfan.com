@@ -7,7 +7,7 @@ interface Props {
   detailsLink: string;
 }
 
-function WorksItem({ imgUrl, title, tech, detailsLink }: Props) {
+function WorksItemOld({ imgUrl, title, tech, detailsLink }: Props) {
   return (
     <div className="overflow-hidden rounded-lg bg-slate-300 dark:bg-slate-900">
       <img
@@ -44,4 +44,4 @@ function WorksItem({ imgUrl, title, tech, detailsLink }: Props) {
   );
 }
 
-export default WorksItem;
+export default WorksItemOld;

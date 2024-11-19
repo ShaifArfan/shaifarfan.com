@@ -35,49 +35,53 @@ const ogImage = frontmatter.cover
   description={frontmatter.description}
   image={ogImage}
 >
-  <div class="blog-content py-10">
-    <div class="mb-10">
-      <h1 class="title-color mb-2 text-3xl font-semibold md:text-4xl">
-        {frontmatter.title}
-      </h1>
-      <p class="mb-2 text-slate-500">
-        📆 {formattedPublishDate(frontmatter.pubDate)}
-      </p>
-    </div>
-    {
-      frontmatter.cover && (
-        <Image
-          src={cloudinaryImageResize({
-            imageUrl: frontmatter.cover,
-            height: 540,
-            width: 1080,
-          })}
-          alt={frontmatter.coverAlt || frontmatter.title}
-          title={frontmatter.coverCredit || frontmatter.title}
-          quality={'high'}
-          loading={'eager'}
-          height={540}
-          width={1080}
-          widths={[720, 1080]}
-          sizes={'(max-width: 768px) 720px, 1080px'}
-          class={'aspect-[2/1] min-h-[200px] w-full object-cover object-center'}
-        />
-      )
-    }
-    <div class="mb-10 mt-5 flex justify-between">
-      <div>
-        <p class="text-slate-500">🕝 {frontmatter.minutesRead}</p>
+  <div class="layout-container">
+    <div class="blog-content py-10">
+      <div class="mb-10">
+        <h1 class="title-color mb-2 text-3xl font-semibold md:text-4xl">
+          {frontmatter.title}
+        </h1>
+        <p class="mb-2 text-slate-500">
+          📆 {formattedPublishDate(frontmatter.pubDate)}
+        </p>
       </div>
-      <a
-        href={editLink}
-        target="_blank"
-        class="link text-slate-500 hover:text-primary">📝 Edit on GitHub</a
-      >
-    </div>
+      {
+        frontmatter.cover && (
+          <Image
+            src={cloudinaryImageResize({
+              imageUrl: frontmatter.cover,
+              height: 540,
+              width: 1080,
+            })}
+            alt={frontmatter.coverAlt || frontmatter.title}
+            title={frontmatter.coverCredit || frontmatter.title}
+            quality={'high'}
+            loading={'eager'}
+            height={540}
+            width={1080}
+            widths={[720, 1080]}
+            sizes={'(max-width: 768px) 720px, 1080px'}
+            class={
+              'aspect-[2/1] min-h-[200px] w-full object-cover object-center'
+            }
+          />
+        )
+      }
+      <div class="mb-10 mt-5 flex justify-between">
+        <div>
+          <p class="text-slate-500">🕝 {frontmatter.minutesRead}</p>
+        </div>
+        <a
+          href={editLink}
+          target="_blank"
+          class="link text-slate-500 hover:text-primary">📝 Edit on GitHub</a
+        >
+      </div>
 
-    <Prose>
-      <slot />
-    </Prose>
+      <Prose>
+        <slot />
+      </Prose>
+    </div>
   </div>
 </Layout>
 

@@ -103,4 +103,11 @@
   .primary-title {
     @apply text-2xl font-semibold text-brand-400 md:text-4xl;
   }
+
+  .layout-border-x {
+    @apply h-[1px] w-full bg-slate-200 dark:bg-slate-700;
+  }
+  .layout-border-y {
+    @apply h-full w-[1px] bg-slate-200 dark:bg-slate-700;
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import works from '../../data/works';
 import SectionTitle from '../SectionTitle';
-import WorksItem from './WorksItem';
+import WorksItemOld from './WorksItemOld';
 
 function Works() {
   return (
@@ -16,7 +16,7 @@ function Works() {
       </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {works.map((work) => (
-          <WorksItem
+          <WorksItemOld
             key={work.title}
             imgUrl={work.imgUrl}
             title={work.title}

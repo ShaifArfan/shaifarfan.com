@@ -1,13 +1,15 @@
 ---
+import Works from '~/components/home/Works.astro';
 import About from '../components/home/Hero.astro';
-import Works from '../components/home/Works';
 import Layout from '../layout/Layout.astro';
 import { isNetlifyContextProd } from '../utils/isNetlifyContextProd';
 ---
 
 <Layout>
   <div class="min-h-screen font-inter">
-    <About />
+    <div class="layout-container">
+      <About />
+    </div>
     <Works />
   </div>
 </Layout>
