@@ -21,7 +21,7 @@ function Works() {
             imgUrl={work.imgUrl}
             title={work.title}
             tech={work.tech}
-            detailsLink={work.detailsLink}
+            detailsLink={work.link}
           />
         ))}
       </div>
