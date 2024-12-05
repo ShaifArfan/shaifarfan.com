@@ -1,8 +1,6 @@
 export default [
   {
     title: 'Web Cifar YouTube Channel',
-    imgUrl:
-      'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     link: 'https://youtube.com/@webcifar',
     linkText: 'YouTube',
     projectType: 'Educational Channel',
@@ -11,7 +9,34 @@ export default [
       'A platform dedicated to empowering developers with practical web development tutorials, focusing on JavaScript, React.js, and modern web technologies.',
     points: ['57k+ Subscribers', '4M+ Views'],
   },
-
+  {
+    title: 'shaifarfan.com',
+    link: 'https://github.com/ShaifArfan/shaifarfan.com',
+    linkText: 'Source Code',
+    projectType: 'Personal Website',
+    year: '2024',
+    description:
+      'A personal website showcasing my projects, skills, and blog posts.',
+    tags: ['Astro.js', 'Tailwind CSS', 'React.js', 'MDX'],
+  },
+  {
+    title: 'Savdo',
+    link: 'https://savdo.shop',
+    linkText: 'Visit Website',
+    projectType: 'Associate: CifarX',
+    year: '2023-present',
+    description:
+      'A SaaS platform for business owners to manage their stores and inventory. A complete business management solution.',
+    tags: [
+      'React.js',
+      'Typescript',
+      'Vite.js',
+      'TanstackQuery',
+      'Redux',
+      'Axios',
+      'zod',
+    ],
+  },
   {
     title: 'Show Tracker',
     imgUrl:
