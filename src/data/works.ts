@@ -34,7 +34,7 @@ export default [
       'TanstackQuery',
       'Redux',
       'Axios',
-      'zod',
+      'Zod',
     ],
   },
   {
@@ -61,12 +61,14 @@ export default [
     title: 'TechHub-Blog',
     imgUrl:
       'https://raw.githubusercontent.com/ShaifArfan/techHub-blog/main/banner.png',
-    tags: ['React JS', 'Gatsby JS', 'Sanity.io'],
+    tags: ['React.js', 'Gatsby.js', 'Sanity.io'],
     link: 'https://github.com/ShaifArfan/techHub-blog',
     linkText: 'Source Code',
     projectType: 'Personal Project',
     year: '2022',
     points: ['47 ⭐', '22 forks'],
+    description:
+      'A blogging platform where tech authors can share articles on different tech topics.',
   },
   {
     title: 'Meal Khuj',
@@ -78,6 +80,7 @@ export default [
     projectType: 'Personal Project',
     year: '2022',
     points: ['27 ⭐'],
+    description: 'A simple app to find meals & save favorite meals. ',
   },
   {
     title: "Shaif's Cuisine",
@@ -89,27 +92,18 @@ export default [
     projectType: 'Personal Project',
     year: '2022',
     points: ['100 ⭐', '73 forks'],
+    description:
+      'A multi-page restaurant website built with HTML and CSS, allowing users to explore the menu and book a table easily.',
   },
   {
     title: "Ayan's Portfolio Website",
     imgUrl:
       'https://raw.githubusercontent.com/ShaifArfan/AYANs-portfolio/main/ReadMeImages/ReadMeBanner.png',
-    tags: ['React JS', 'CSS'],
+    tags: ['React.js', 'CSS'],
     link: 'https://github.com/ShaifArfan/AYANs-portfolio',
     linkText: 'Source Code',
     projectType: 'Personal Project',
     year: '2021',
     points: ['164 ⭐', '68 forks'],
-  },
-  {
-    title: 'Artistic',
-    imgUrl:
-      'https://raw.githubusercontent.com/ShaifArfan/artistic/main/readmeImg/banner.png',
-    tags: ['React JS', 'CSS', 'Styled Components'],
-    link: 'https://github.com/ShaifArfan/artistic',
-    linkText: 'Source Code',
-    projectType: 'Personal Project',
-    year: '2021',
-    points: ['40 ⭐'],
   },
 ];
