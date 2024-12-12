@@ -25,6 +25,7 @@ export default [
     linkText: 'Visit Website',
     projectType: 'Associate: CifarX',
     year: '2023-present',
+    points: ['Frontend'],
     description:
       'A SaaS platform for business owners to manage their stores and inventory. A complete business management solution.',
     tags: [

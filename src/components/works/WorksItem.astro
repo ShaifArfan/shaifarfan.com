@@ -14,10 +14,10 @@ const { title, tags, description, year, link, linkText, projectType, points } =
 ---
 
 <div
-  class="space-y-3 px-3 py-6 hover:bg-slate-200 dark:hover:bg-[#030408] md:px-5"
+  class="space-y-3 px-3 py-6 hover:bg-[#e6e8ec] dark:hover:bg-[#070c13] md:px-5"
 >
   <div class="flex flex-wrap items-center gap-2">
-    <h1 class="text-xl">{title}</h1>
+    <h1 class="title-color text-xl font-semibold">{title}</h1>
     <p class="text-md text-slate-400">
       (<a class="link" href={link} target="_blank" rel="noopener noreferrer"
         >{linkText} 🔗</a
@@ -44,7 +44,7 @@ const { title, tags, description, year, link, linkText, projectType, points } =
     tags && (
       <div class="flex flex-wrap gap-2">
         {tags.map((item) => (
-          <span class="rounded-md bg-slate-100 px-2 py-1 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+          <span class="rounded-md bg-slate-100 px-2 py-1 text-base text-slate-600 dark:bg-slate-800 dark:text-slate-400">
             {item}
           </span>
         ))}

@@ -105,9 +105,9 @@
   }
 
   .layout-border-x {
-    @apply h-[1px] w-full bg-slate-300 dark:bg-slate-700;
+    @apply h-[1px] w-full bg-slate-200 dark:bg-slate-800;
   }
   .layout-border-y {
-    @apply h-full w-[1px] bg-slate-300 dark:bg-slate-700;
+    @apply h-full w-[1px] bg-slate-200 dark:bg-slate-800;
   }
 }

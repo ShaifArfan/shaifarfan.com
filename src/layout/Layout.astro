@@ -11,9 +11,11 @@ import 'nprogress/nprogress.css';
 import '~/styles/global.css';
 import Posthog from '~/components/posthog.astro';
 
-export type Props = HeadProps;
+interface Props extends HeadProps {
+  container?: boolean;
+}
 
-const { ...head } = Astro.props;
+const { container, ...head } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,7 +33,7 @@ const { ...head } = Astro.props;
         <Header transition:persist transition:animate="none" />
         <div
           transition:animate="fade"
-          class="dark:text-dark text-black dark:text-white"
+          class=`dark:text-dark text-black dark:text-white ${container ? 'layout-container' : ''}`
         >
           <slot />
         </div>

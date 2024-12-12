@@ -7,12 +7,14 @@ import { siteInfo } from '~/data/site-info';
 <div class="flex flex-col justify-between gap-3 py-2 md:flex-row">
   <a
     href={`mailto:${siteInfo.email}`}
-    class="flex items-center justify-center gap-2 text-base text-slate-500 dark:text-slate-500"
+    class="flex items-center justify-center gap-2 text-base text-slate-500 dark:text-slate-400"
   >
     <span>
       <FaEnvelope />
     </span>
-    {siteInfo.email}
+    <span>
+      {siteInfo.email}
+    </span>
   </a>
   <div class="flex items-center justify-center gap-3 md:justify-between">
     <ul class="flex gap-2" aria-label="Social Links">

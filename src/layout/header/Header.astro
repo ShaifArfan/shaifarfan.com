@@ -19,7 +19,7 @@ if (currentPath[currentPath.length - 1] === '/') {
 }
 ---
 
-<div class="border-b-[1px] border-slate-200 dark:border-slate-800">
+<div>
   <div class="layout-container">
     <TopHeader />
     <div class="my-3 flex items-center justify-between">
@@ -35,11 +35,12 @@ if (currentPath[currentPath.length - 1] === '/') {
             const isActive =
               currentPath === link.href.slice(1) ||
               pathname.startsWith(`${link.href}/`);
+            console.log({ isActive, pathname, href: link.href });
             return (
-              <li class="text-md link font-medium text-slate-500 dark:text-slate-500">
+              <li class="text-md link font-medium">
                 <a
                   href={link.href}
-                  class={isActive ? 'text-brand-400 dark:text-brand-300' : ''}
+                  class={`${isActive === true ? 'text-brand-400 dark:text-brand-300' : 'text-slate-500 dark:text-slate-400'}`}
                 >
                   {link.name}
                 </a>
@@ -50,4 +51,5 @@ if (currentPath[currentPath.length - 1] === '/') {
       </ul>
     </div>
   </div>
+  <div class="layout-border-x"></div>
 </div>
