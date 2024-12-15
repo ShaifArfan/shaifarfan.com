@@ -12,10 +12,10 @@ interface Props {
 }
 
 const { frontmatter, editLink } = Astro.props;
-import EmbedYouTube from '../components/EmbedYouTube';
 import { Image } from 'astro:assets';
 import { formattedPublishDate } from '~/utils/date';
 import { cloudinaryImageResize } from '~/utils/cloudinaryImageResize';
+import Chip from '~/components/chip.astro';
 
 const ogImage = frontmatter.cover
   ? {
@@ -37,13 +37,16 @@ const ogImage = frontmatter.cover
 >
   <div class="layout-container">
     <div class="blog-content py-10">
-      <div class="mb-10">
+      <div class="">
         <h1 class="title-color mb-2 text-3xl font-semibold md:text-4xl">
           {frontmatter.title}
         </h1>
         <p class="mb-2 text-slate-500">
           📆 {formattedPublishDate(frontmatter.pubDate)}
         </p>
+      </div>
+      <div class="mt-2 flex flex-wrap gap-2">
+        {frontmatter.tags.map((tag) => <Chip>{tag}</Chip>)}
       </div>
       {
         frontmatter.cover && (
@@ -62,7 +65,7 @@ const ogImage = frontmatter.cover
             widths={[720, 1080]}
             sizes={'(max-width: 768px) 720px, 1080px'}
             class={
-              'aspect-[2/1] min-h-[200px] w-full object-cover object-center'
+              'mt-5 aspect-[2/1] min-h-[200px] w-full object-cover object-center'
             }
           />
         )

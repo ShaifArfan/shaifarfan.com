@@ -1,4 +1,6 @@
 ---
+import Chip from '../chip.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -44,9 +46,7 @@ const { title, tags, description, year, link, linkText, projectType, points } =
     tags && (
       <div class="flex flex-wrap gap-2">
         {tags.map((item) => (
-          <span class="rounded-md bg-slate-100 px-2 py-1 text-base text-slate-600 dark:bg-slate-800 dark:text-slate-400">
-            {item}
-          </span>
+          <Chip>{item}</Chip>
         ))}
       </div>
     )
