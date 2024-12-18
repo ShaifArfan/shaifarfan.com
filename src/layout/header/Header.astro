@@ -1,5 +1,6 @@
 ---
 import TopHeader from './TopHeadert.astro';
+import { removeTrailingSlash } from '../../utils/utilFns';
 
 const LINKS = [
   {
@@ -12,11 +13,7 @@ const LINKS = [
   },
 ];
 
-const { pathname } = new URL(Astro.request.url);
-let currentPath = pathname.slice(1); // remove the first slash
-if (currentPath[currentPath.length - 1] === '/') {
-  currentPath = currentPath.slice(0, currentPath.length - 1);
-}
+const pathname = removeTrailingSlash(Astro.url.pathname);
 ---
 
 <div>
@@ -32,9 +29,9 @@ if (currentPath[currentPath.length - 1] === '/') {
       <ul class="flex gap-3">
         {
           LINKS.map((link) => {
-            const isActive =
-              currentPath === link.href.slice(1) ||
-              pathname.startsWith(`${link.href}/`);
+            const isActive = pathname
+              ? pathname === link.href || pathname.startsWith(`${link.href}/`)
+              : link.href === '/';
             return (
               <li class="text-md link font-medium">
                 <a
