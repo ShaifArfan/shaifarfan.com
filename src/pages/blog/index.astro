@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layout/Layout.astro';
 import { Image } from 'astro:assets';
 import { formattedPublishDate } from '~/utils/date';
@@ -53,7 +53,7 @@ const { posts, tags } = getBlogPosts(await getCollection('blog'), {
       >
         {
           posts.map((post, index) => (
-            <a href={'/blog/' + post.slug} class="">
+            <a href={'/blog/' + post.id.split('/')[0]} class="">
               <div class="h-full rounded-3xl border-2 border-slate-200 bg-transparent p-3 hover:bg-slate-300 dark:border-slate-800 dark:hover:bg-slate-900 sm:p-3">
                 {post.data.cover && (
                   <div
@@ -88,11 +88,9 @@ const { posts, tags } = getBlogPosts(await getCollection('blog'), {
                     <p class="mx-2 text-slate-500">•</p>
                     <p class="text-sm text-slate-500">
                       (
-                      {post
-                        .render()
-                        .then(
-                          (item) => item.remarkPluginFrontmatter.minutesRead
-                        )}
+                      {render(post).then(
+                        (item) => item.remarkPluginFrontmatter.minutesRead
+                      )}
                       )
                     </p>
                   </div>

@@ -35,7 +35,6 @@ if (currentPath[currentPath.length - 1] === '/') {
             const isActive =
               currentPath === link.href.slice(1) ||
               pathname.startsWith(`${link.href}/`);
-            console.log({ isActive, pathname, href: link.href });
             return (
               <li class="text-md link font-medium">
                 <a

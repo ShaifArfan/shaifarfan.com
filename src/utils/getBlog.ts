@@ -5,9 +5,8 @@ export const getBlogPosts = (
   posts: CollectionEntry<'blog'>[],
   { tagFilter }: { tagFilter?: string[] }
 ) => {
-  console.log(tagFilter);
   const validPost = posts.filter((post) => {
-    if (isNetlifyContextProd && post.slug.startsWith('draft-')) {
+    if (isNetlifyContextProd && post.id.startsWith('draft-')) {
       return false;
     }
     return true;

@@ -6,19 +6,19 @@ import { VscCode } from 'react-icons/vsc';
 export default [
   {
     title: 'Web Design',
-    icon: <MdWeb className="w-full h-full" />,
+    icon: <MdWeb className="h-full w-full" />,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi rerum quia harum eaque, quae laboriosam quisquam distinctio.',
   },
   {
     title: 'Ui Design',
-    icon: <FaHandHoldingHeart className="w-full h-full" />,
+    icon: <FaHandHoldingHeart className="h-full w-full" />,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi rerum quia harum eaque, quae laboriosam quisquam distinctio.',
   },
   {
     title: 'Web Development',
-    icon: <VscCode className="w-full h-full" />,
+    icon: <VscCode className="h-full w-full" />,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi rerum quia harum eaque, quae laboriosam quisquam distinctio.',
   },

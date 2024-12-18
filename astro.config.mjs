@@ -21,6 +21,9 @@ const siteURL =
 // https://astro.build/config
 export default defineConfig({
   site: siteURL || 'https://shaifarfan.com',
+  legacy: {
+    collections: true,
+  },
   integrations: [
     react(),
     tailwind({
@@ -28,7 +31,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    mdx(),
+    mdx({
+      extendMarkdownConfig: true,
+    }),
   ],
   image: {
     domains: ['res.cloudinary.com'],

@@ -1,19 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogLayout from '../../layout/BlogLayout.astro';
 import { getEditLink } from '~/utils/getEditLink';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id.split('/')[0] },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await entry.render();
-const editLink = getEditLink(entry.slug);
+const { Content, remarkPluginFrontmatter } = await render(entry);
+const editLink = getEditLink(entry.id);
 ---
 
 <BlogLayout
