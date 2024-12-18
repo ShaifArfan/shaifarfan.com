@@ -23,7 +23,7 @@ TODO:
   - [x] YouTube card
   - [x] Add estimated reading time
   - [ ] Add comments
-  - [ ] Tags
+  - [x] Tags
   - [ ] search
   - [ ] pagination
 - [ ] 404 page

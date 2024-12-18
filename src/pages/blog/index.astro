@@ -29,6 +29,13 @@ const { posts, tags } = getBlogPosts(await getCollection('blog'), {
         </p>
       </div>
       <div class="mt-3 flex flex-wrap items-center justify-center gap-2">
+        <a href={'/blog'} class="flex">
+          <Chip
+            class={`border-2 ${Astro.url.pathname === '/blog' ? 'border-brand-300' : 'hover:border-brand-300'}`}
+          >
+            All Posts
+          </Chip>
+        </a>
         {
           tags.map((tag) => {
             const selected =
