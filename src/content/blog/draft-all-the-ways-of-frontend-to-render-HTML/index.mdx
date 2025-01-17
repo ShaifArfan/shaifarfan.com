@@ -1,0 +1,93 @@
+---
+title: 'Diagram of all the ways of frontend to render HTML'
+pubDate: 2025-01-17
+description: ''
+cover: 'https://res.cloudinary.com/shaifarfan/image/upload/v1712078512/shaifarfan.com/blog/airbnb-eslint-prettier-setup-react-typescript/cover.png'
+tags: ['Frontend', 'SPA', 'MPA']
+---
+
+Generally there are many ways of rendering HTML on the browser. All these complex ways of rendering HTML can be overwhelmed. So, Having a diagram view of all the ways of rendering HTML is really helpful. Below is the list of all the ways of rendering HTML.
+
+1. MPA - (Traditional Multiple Page Application)
+1. Basic SPA - (Single Page Application)
+1. SPA with SSR - (Single Page Application with Server Side Rendering)
+1. SPA-influenced isomorphic (Server Rendered)
+1. MPA influenced split execution (Island/Server Component)
+
+All the diagram are created by me from the [video of Theo](https://youtu.be/Cifkb-ZVps4), with my own improvisations.
+
+### 1. MPA - (Traditional Multiple Page Application)
+
+![MPA Diagram](https://res.cloudinary.com/shaifarfan/image/upload/v1737121780/shaifarfan.com/blog/all-the-ways-of-frontend-to-render-HTML/mpa_aju6ul.png)
+
+**Pros**:
+
+1. Good for SEO, since first load will have complete HTML
+1. Less complexity
+
+**Cons**:
+
+1. No immediate navigation.
+2. HTML file completely generated from the server. So, no CDN benefits here.
+
+### 2. Basic SPA - (Single Page Application)
+
+![SPA Diagram](https://res.cloudinary.com/shaifarfan/image/upload/v1737119784/shaifarfan.com/blog/all-the-ways-of-frontend-to-render-HTML/spa_gybomc.png)
+
+**Pros**:
+
+1. You get the immediate navigation on page change.
+
+**Cons**:
+
+1. Initial HTML file will be empty, which not gonna work with SEO.
+1. You need to store the big chunk data on the client side to generate the pages.
+1. First load can take a bit of time since, lots of things needs to be done in the first load
+
+### 3. SPA with SSR - (Single Page Application with Server Side Rendering)
+
+![SPA WITH SSR Diagram](https://res.cloudinary.com/shaifarfan/image/upload/v1737120070/shaifarfan.com/blog/all-the-ways-of-frontend-to-render-HTML/spa-with-ssr.png)
+
+**Pros**:
+
+1. You get the immediate navigation on page change.
+2. First load will have full HTML content, which is good for SEO
+3. User will see content faster than traditional SPA way.
+
+**Cons**:
+
+1. You still need to store the big chunk data on the client side to generate the pages.
+2. You can't get the HTML from CDN, since we will generate it from the server.
+
+### 4. SPA-influenced isomorphic (Same code runs differently on client and server)
+
+![SPA isomorphic](https://res.cloudinary.com/shaifarfan/image/upload/v1737119784/shaifarfan.com/blog/all-the-ways-of-frontend-to-render-HTML/spa-isomorphic_tbhaqj.png)
+
+**Pros**:
+
+1. You get the immediate navigation on page change.
+2. First load will have full HTML content, which is good for SEO
+3. User will see content faster than traditional SPA way.
+
+**Cons**:
+
+1. You still need to store the big chunk data on the client side to generate the pages.
+1. You can't get the HTML from CDN, since we will generate it from the server.
+
+### 5. MPA influenced split execution (Island/Server Component)
+
+![MPA influenced split execution](https://res.cloudinary.com/shaifarfan/image/upload/v1737119785/shaifarfan.com/blog/all-the-ways-of-frontend-to-render-HTML/split-execution_kibtde.png)
+
+**Pros**:
+
+1. You can store the HTML file wherever you want (CDN, S3 etc.)
+2. Less complexity
+
+**Cons**:
+
+1. To get the island content you need wait for the static HTML to get back from the server first.
+
+**Thanks**
+
+- These diagrams are created from the video of Theo. [Youtube Video](https://youtu.be/Cifkb-ZVps4)
+- All the diagram are created using [Excalidraw](https://excalidraw.com/)
